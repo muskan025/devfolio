@@ -10,7 +10,7 @@ export interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ tab, setTab }) => {
   const tabs = [
-    { key: TabKey.About, label: "About Me" },
+    { key: TabKey.About, label: "About" },
     { key: TabKey.Projects, label: "Growth" },
     { key: TabKey.Contact, label: "Socialize" },
   ];
