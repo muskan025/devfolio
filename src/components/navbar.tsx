@@ -52,7 +52,7 @@ const Navbar: React.FC<NavbarProps> = ({ tab, setTab }) => {
         paddingRight: "10px",
       }}
     >
-      <div className="bg-black bg-opacity-80 max-w-[500px] w-full m-auto rounded-full text-1.8rem border border-black p-[8px]">
+      <div className="bg-[#181818] bg-opacity-80 max-w-[500px] w-full m-auto rounded-full text-1.8rem p-[8px]">
         <div className="flex rounded-full p-2 justify-between items-center text-white mx-auto relative">
 
           {/* Tabs */}

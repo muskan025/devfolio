@@ -66,13 +66,10 @@ const Block = ({ keyProp }: { keyProp: string }) => {
   const [label, keyPart] = keyProp.split(" ");
 
   return (
-    <div
-      style={{ backgroundColor: 'rgba(20, 20, 20, 0.65)' }}
-      className="h-full w-full flex flex-col justify-center items-center p-6 text-[var(--black-1)] rounded-3xl"
-    >
+      <div className="card-style h-full w-full flex flex-col justify-center items-center p-6 rounded-[32px]">
       <span>
-        <span className="normal-case">{label}</span>{" "}
-        <span className="uppercase">{keyPart}</span>
+       <span className="normal-case text-white/95">{label}</span>{" "}
+        <span className="uppercase text-white/75">{keyPart}</span>
       </span>
     </div>
   );
