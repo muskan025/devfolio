@@ -56,12 +56,17 @@ function App() {
               <button className="rounded-xl border-2 border-[#1d1d1b] bg-[#fffdf8] px-4 py-1 text-base">Resume ↓</button>
             </div>
 
-            <h2 className="mt-4 text-4xl font-semibold leading-none sm:text-5xl">I&apos;m Software Engineer</h2>
-            <p className="mt-3 text-xl text-[#2b2b29]">Explorer, hardworking, and curious</p>
+<h2 className="mt-4 text-4xl font-semibold leading-none sm:text-5xl">
+  <span className=''>I&apos;m{" "}</span>
+  <span className="inline-block align-bottom overflow-hidden whitespace-nowrap border-r-2 border-[#1d1d1b] animate-typing">
+    Software Engineer
+  </span>
+</h2>          
+<p className="mt-3 text-xl text-[#2b2b29]">Explorer, hardworking, and curious</p>
 
             <div className="mt-5 rounded-3xl border-2 border-[#1d1d1b] bg-[#fffdf8] p-4">
               <div className="flex flex-wrap gap-2 text-sm sm:text-base">
-                {['India', 'English / Hindi / Urdu / Konkani / Arabic', 'Software Engineer', 'IST', 'MIT University', 'Good Vibes'].map((item) => (
+                {['English', 'Hindi', 'Urdu', 'Konkani', 'Arabic'].map((item) => (
                   <span key={item} className="rounded-full border-2 border-[#1d1d1b] bg-[#f9f6ef] px-3 py-1">
                     {item}
                   </span>

@@ -101,3 +101,31 @@ html {
   opacity: 0.65;
   pointer-events: none;
 }
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 16ch;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.animate-typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  width: 18ch;
+  padding-bottom: 8px;
+
+  animation:
+    typing 2.5s steps(18) infinite alternate,
+    blink 0.8s step-end infinite;
+}
