@@ -9,9 +9,9 @@ const languages = [
 ];
 
 const sliderSpeeds = {
-  slow: 24,
-  medium: 16,
-  fast: 10,
+  slow: 0,
+  medium: 15,
+  fast: 4,
 } as const;
 
 type SliderSpeed = keyof typeof sliderSpeeds;
@@ -30,8 +30,20 @@ function App() {
     { title: 'Portfolio V2', stack: ['Vite', 'React', 'API Integrations'] },
   ];
 
+  const techStack = [
+    { name: 'Node.js', color: '#3b82f6' },
+    { name: 'Express', color: '#ef4444' },
+      { name: 'MongoDB', color: '#10b981' },
+    {name: 'Redis', color: '#f59e0b' },
+    {name: 'BullMQ', color: '#f59e0b' },
+    {name: 'Docker', color: '#10b981' },
+    { name: 'React', color: '#ef4444' },
+    { name: 'TypeScript', color: '#f59e0b' },
+    { name: 'Tailwind', color: '#8b5cf6' },
+    {name: 'Tanstack Query', color: '#3b82f6' },
+  ]
    const [sliderSpeed, setSliderSpeed] = useState<SliderSpeed>('medium');
-  const marqueeSkills = useMemo(() => [...projects[0].stack, ...projects[0].stack], [projects]);
+  const marqueeSkills = useMemo(() =>  [...techStack.map((tech) => tech.name), ...techStack.map((tech) => tech.name)], [techStack]);
 
   const myTime = new Date();
 
