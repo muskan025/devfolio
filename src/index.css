@@ -121,11 +121,22 @@ html {
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
-  vertical-align: bottom;
+  vertical-align: top;     
   width: 18ch;
   padding-bottom: 8px;
 
   animation:
     typing 2.5s steps(18) infinite alternate,
     blink 0.8s step-end infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-ping {
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
 }

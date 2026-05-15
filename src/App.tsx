@@ -30,7 +30,7 @@ function App() {
             <button className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-sm">Mode</button>
           </nav>
         </header>
-        <section id="about" className="grid gap-4 md:grid-cols-2">
+        <section id="about" className="grid gap-4 md:grid-cols-[5fr_7fr]">
             <div className="flex flex-col gap-4">
             <article className="relative rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef] p-6 shadow-[5px_5px_0_#1d1d1b] md:min-h-[390px]">
                <h1 className="mt-8 text-5xl uppercase leading-[0.95] sm:text-6xl md:text-7xl">Welcome</h1>
@@ -52,12 +52,17 @@ function App() {
         </div>
             <aside className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef] p-6 shadow-[5px_5px_0_#1d1d1b] md:min-h-[390px]">
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <span className="rounded-full border-2 border-[#1d1d1b] bg-[#fffdf8] px-4 py-1 text-base">🟢 Available To Work</span>
-              <button className="rounded-xl border-2 border-[#1d1d1b] bg-[#fffdf8] px-4 py-1 text-base">Resume ↓</button>
+<span className="rounded-full border-2 border-[#1d1d1b] bg-[#fffdf8] px-4 py-1 text-base flex items-center gap-2">
+  <span className="relative flex h-3 w-3">
+    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+    <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span>
+  </span>
+  Available To Work
+</span>              <button className="rounded-xl border-2 border-[#1d1d1b] bg-[#fffdf8] px-4 py-1 text-base">Resume ↓</button>
             </div>
 
 <h2 className="mt-4 text-4xl font-semibold leading-none sm:text-5xl">
-  <span className=''>I&apos;m{" "}</span>
+  <span className=''>I&apos;m a{" "}</span>
   <span className="inline-block align-bottom overflow-hidden whitespace-nowrap border-r-2 border-[#1d1d1b] animate-typing">
     Software Engineer
   </span>
@@ -99,7 +104,7 @@ function App() {
           </aside>
         </section>
 
-       <section id="projects" className="mt-10 grid gap-4 md:grid-cols-2">
+       <section id="projects" className="mt-10 grid gap-4 md:grid-cols-[3fr_7fr]">
           <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef] p-6 shadow-[5px_5px_0_#1d1d1b]">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-3xl uppercase">Projects →</h3>
@@ -130,16 +135,20 @@ function App() {
           </article>
         </section>
         
-        <section id="contact" className="mt-6 grid gap-4 md:grid-cols-2">
+        <section id="contact" className="mt-6 grid gap-4 md:grid-cols-[6fr_4fr]">
           <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef] p-6 shadow-[5px_5px_0_#1d1d1b]">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-3xl uppercase">Connect →</h3>
             </div>
             <div className="rounded-2xl border-2 border-[#1d1d1b] bg-[#fffdf8] p-4">
               <div className="flex flex-wrap gap-2">
-                <a href="#" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">GitHub</a>
-                <a href="#" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">LinkedIn</a>
-                <a href="mailto:hello@muskan.dev" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">Email</a>
+                <a href="mailto:muskandodmani222@gmail.com" target='_blank' rel="noopener noreferrer" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">Email</a>
+                <a href="https://github.com/muskan025" target='_blank' rel="noopener noreferrer" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">GitHub</a>
+                <a href="https://www.linkedin.com/in/muskan-dodmani/" target='_blank' rel="noopener noreferrer" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">LinkedIn</a>
+                <a href="https://medium.com/@muskandodmani222" target='_blank' rel="noopener noreferrer" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">Medium</a>
+                <a href="https://dev.to/muskan025" target='_blank' rel="noopener noreferrer" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">Dev.to</a>
+                <a href="https://app.daily.dev/muskan025" target='_blank' rel="noopener noreferrer" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">Daily.dev</a>
+                <a href="https://www.instagram.com/poetry_frames_786/" target='_blank' rel="noopener noreferrer" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">Instagram</a>
               </div>
             </div>
           </article>
