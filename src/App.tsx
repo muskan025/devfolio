@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { FaDev, FaGithub, FaInstagram, FaLinkedin, FaMedium, FaNodeJs } from 'react-icons/fa';
+import { FaDev, FaGithub, FaInstagram, FaLinkedin, FaMedium, FaNodeJs, FaArrowRight } from 'react-icons/fa';
 import { SiDocker, SiExpress, SiMongodb, SiRedis, SiTailwindcss, SiTypescript, SiGmail, SiDailydotdev, SiReactquery } from 'react-icons/si';
 import { TbBrandReact } from 'react-icons/tb';
 
@@ -216,50 +216,136 @@ useEffect(() => {
           </aside>
         </section>
 
-       <section id="projects" className="mt-10 grid gap-4 md:grid-cols-[3fr_7fr]">
-          <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b]">
-            <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-3xl uppercase">Projects →</h3>
-            </div>
-            <div className="rounded-2xl border-2 border-[#1d1d1b] bg-[#fffdf8] p-4">
-              <div className="space-y-2">
-                {projects.map((project) => (
-                  <p key={project.title} className="text-lg font-medium">{project.title}</p>
-                ))}
-              </div>
-            </div>
-          </article>
+       <section id="projects" className="mt-10 grid gap-4 md:grid-cols-[3fr_5fr]">
+          <article
+  className="relative overflow-hidden rounded-[2rem] border-2 border-[#1d1d1b] p-6 shadow-[5px_5px_0_#1d1d1b]"
+  style={{
+    backgroundImage: `url('/forest-card-bg.jpg')`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }}
+>
+  {/* cinematic overlay */}
+  <div className=" inset-0 bg-[#f9f6ef]/75 backdrop-blur-sm absolute" />
 
-          <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b] overflow-hidden">
-            <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-3xl uppercase">Skills →</h3>
-               <div className="flex items-center gap-2" aria-label="Slider speed controls">
-                <button onClick={() => setSliderSpeed('slow')} className="h-3 w-3 rounded-full border border-[#1d1d1b] bg-red-500" aria-label="Set slow speed" />
-                <button onClick={() => setSliderSpeed('medium')} className="h-3 w-3 rounded-full border border-[#1d1d1b] bg-yellow-400" aria-label="Set medium speed" />
-                <button onClick={() => setSliderSpeed('fast')} className="h-3 w-3 rounded-full border border-[#1d1d1b] bg-green-500" aria-label="Set fast speed" />
-              </div>
+  <div className="relative z-10">
+    <div className="mb-4 flex items-center justify-between">
+      <h3 className="text-3xl uppercase">Projects →</h3>
+    </div>
+
+    <div className="relative inline-flex flex-col rounded-2xl border-2 border-[#1d1d1b] bg-[#fffdf8]/90 p-4">
+      <div className="space-y-3">
+        {projects.map((project) => (
+          <div
+            key={project.title}
+            className="group flex items-center justify-between gap-4 rounded-xl border border-transparent px-2 py-1 transition-all duration-300 hover:border-[#1d1d1b] hover:bg-[#f4ecdd]"
+          >
+            <p className="text-lg font-medium whitespace-nowrap">
+              {project.title}
+            </p>
+          </div>
+        ))}
+      </div>
+       <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#1d1d1b] bg-[#fffdf8] transition-transform duration-300 group-hover:translate-x-1  absolute right-4 -bottom-4 cursor-pointer">
+              <FaArrowRight className="text-xs" />
             </div>
-       <div className="skills-shell overflow-hidden rounded-2xl border-2 border-[#1d1d1b] bg-[#fffdf8] p-4">
-              <div className="skills-marquee" style={{ ['--skills-duration' as string]: `${sliderSpeeds[sliderSpeed]}s` }}>
-                 {marqueeSkills.map((tech, index) => (
-                  <span
-                    key={`${tech.name}-${index}`}
-                    className="skill-pill whitespace-nowrap rounded-full border-2 border-[#1d1d1b] px-4 py-1.5 text-base font-medium"
-                  >
-                    <span className="inline-flex items-center gap-2 cursor-pointer">
-       <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-[#1d1d1b] bg-[#fff9ef]">
-                        {skillLogos[tech.name] ?? <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: tech.color }} />}
-                      </span>
-                      {tech.name}
-                    </span>
-                  </span>
-                ))}
-              </div>
-            </div>
-          </article>
+    </div>
+  </div>
+</article>
+
+        <div className="flex flex-col gap-4 h-full overflow-hidden">
+
+  {/* Skills Card */}
+  <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b]">
+    
+    <div className="mb-4 flex items-center justify-between">
+      <h3 className="text-3xl uppercase">Skills →</h3>
+
+      <div className="flex items-center gap-2 overflow-hidden" aria-label="Slider speed controls">
+        <button
+          onClick={() => setSliderSpeed('slow')}
+          className="h-3 w-3 rounded-full border border-[#1d1d1b] bg-red-500"
+        />
+        <button
+          onClick={() => setSliderSpeed('medium')}
+          className="h-3 w-3 rounded-full border border-[#1d1d1b] bg-yellow-400"
+        />
+        <button
+          onClick={() => setSliderSpeed('fast')}
+          className="h-3 w-3 rounded-full border border-[#1d1d1b] bg-green-500"
+        />
+      </div>
+    </div>
+
+    <div className="skills-shell overflow-hidden rounded-2xl border-2 border-[#1d1d1b] bg-[#fffdf8] p-4">
+      <div
+        className="skills-marquee"
+        style={{
+          ['--skills-duration' as string]: `${sliderSpeeds[sliderSpeed]}s`,
+        }}
+      >
+        {marqueeSkills.map((tech, index) => (
+          <span
+            key={`${tech.name}-${index}`}
+            className="skill-pill whitespace-nowrap rounded-full border-2 border-[#1d1d1b] px-4 py-1.5 text-base font-medium"
+          >
+            <span className="inline-flex items-center gap-2 cursor-pointer">
+              <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-[#1d1d1b] bg-[#fff9ef]">
+                {skillLogos[tech.name]}
+              </span>
+
+              {tech.name}
+            </span>
+          </span>
+        ))}
+      </div>
+    </div>
+  </article>
+
+  {/* Currently Learning */}
+  <article className="self-start relative overflow-hidden rounded-[2rem] border-2 border-[#1d1d1b] bg-gradient-to-br from-[#fff7e8] via-[#f4ecdd] to-[#efe4cf] p-6 shadow-[5px_5px_0_#1d1d1b]">
+
+    {/* glowing blur */}
+    <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#ffd166]/30 blur-3xl" />
+
+    <div className="relative z-10">
+      <div className="mb-4 flex items-center justify-between">
+        <h4 className="text-2xl uppercase tracking-wide">
+          Currently Learning
+        </h4>
+
+        <span className="rounded-full border-2 border-[#1d1d1b] bg-[#fffdf8] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em]">
+          In Progress
+        </span>
+      </div>
+
+      <div className="flex flex-wrap gap-3">
+        {[
+          'System Design',
+          'AWS',
+          'BullMQ',
+          'TanStack Query',
+        ].map((item) => (
+          <div
+            key={item}
+            className="group flex items-center gap-2 rounded-full border-2 border-[#1d1d1b] bg-[#fffdf8] px-4 py-2 text-sm font-medium transition-all duration-300 hover:-translate-y-1 hover:bg-[#1d1d1b] hover:text-[#fffdf8]"
+          >
+            <span className="h-2 w-2 rounded-full bg-green-500 transition-colors group-hover:bg-[#ffd166]" />
+
+            {item}
+          </div>
+        ))}
+      </div>
+
+      <p className="mt-5 text-sm leading-relaxed text-[#4b463d]">
+        Building deeper backend architecture skills and scalable systems with curiosity, caffeine, and occasional existential debugging.
+      </p>
+    </div>
+  </article>
+</div>
         </section>
         
-        <section id="contact" className="mt-6 grid gap-4 md:grid-cols-[6fr_4fr]">
+        <section id="contact" className="mt-6 grid gap-4 md:grid-cols-[4fr_6fr]">
           <article className="self-start rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b]">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-3xl uppercase">Connect →</h3>
@@ -285,9 +371,20 @@ useEffect(() => {
 
           <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b]">
             <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-3xl uppercase">Blogs →</h3>
-              <p className="text-sm">fetched via API</p>
-            </div>
+  <h3 className="text-3xl uppercase">Blogs →</h3>
+
+ <a
+  href="https://dev.to/muskan025"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group inline-flex items-center gap-2 rounded-xl border-2 border-[#1d1d1b] bg-[#fffdf8] px-4 py-1.5 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1d1d1b] hover:text-[#fffdf8]"
+>
+  View All
+  <span className="transition-transform duration-300 group-hover:translate-x-1">
+    →
+  </span>
+</a>
+</div>
             <div className="rounded-2xl border-2 border-[#1d1d1b] bg-[#fffdf8] p-4">
              {latestPost ? (
  <div
