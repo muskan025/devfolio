@@ -13,6 +13,7 @@ body {
   scrollbar-width: none;
   background-color: #181818;
   overflow-x: hidden; /* Prevent horizontal scrolling */
+    background: #0f140f;
 }
 
 #root {

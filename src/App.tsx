@@ -1,4 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { FaDev, FaGithub, FaInstagram, FaLinkedin, FaMedium, FaNodeJs } from 'react-icons/fa';
+import { SiDocker, SiExpress, SiMongodb, SiRedis, SiTailwindcss, SiTypescript, SiGmail, SiDailydotdev, SiReactquery } from 'react-icons/si';
+import { TbBrandReact } from 'react-icons/tb';
 
 const languages = [
   { name: 'English', color: '#ef4444', proficiency: 'Fluent', flair: 'Nuanced professional communication' },
@@ -23,6 +26,13 @@ export enum TabKey {
   Contact = "Socialize",
 }
 
+type BlogPost = {
+  title: string;
+  link: string;
+  pubDate?: string;
+  cover_image:string
+};
+
 function App() {
    const projects = [
     { title: 'AudioTrack Classmate', stack: ['Node.js', 'MongoDB', 'React'] },
@@ -42,14 +52,79 @@ function App() {
     { name: 'Tailwind', color: '#8b5cf6' },
     {name: 'Tanstack Query', color: '#3b82f6' },
   ]
+    const skillLogos: Record<string, JSX.Element> = {
+    'Node.js': <FaNodeJs className="h-4 w-4 text-[#3c873a]" aria-hidden="true" />,
+    Express: <SiExpress className="h-4 w-4 text-[#111111]" aria-hidden="true" />,
+    MongoDB: <SiMongodb className="h-4 w-4 text-[#10aa50]" aria-hidden="true" />,
+    Redis: <SiRedis className="h-4 w-4 text-[#dc382d]" aria-hidden="true" />,
+    BullMQ: <SiRedis className="h-4 w-4 text-[#d97706]" aria-hidden="true" />,
+    Docker: <SiDocker className="h-4 w-4 text-[#2496ed]" aria-hidden="true" />,
+    React: <TbBrandReact className="h-4 w-4 text-[#61dafb]" aria-hidden="true" />,
+    TypeScript: <SiTypescript className="h-4 w-4 text-[#3178c6]" aria-hidden="true" />,
+    Tailwind: <SiTailwindcss className="h-4 w-4 text-[#06b6d4]" aria-hidden="true" />,
+    'Tanstack Query': <SiReactquery className="h-4 w-4 text-[#ff4154]" aria-hidden="true" />,
+  };
+
+  const socialLinks = [
+    { name: 'Email', href: 'mailto:muskandodmani222@gmail.com', icon: <SiGmail className="h-4 w-4" aria-hidden="true" /> },
+    { name: 'GitHub', href: 'https://github.com/muskan025', icon: <FaGithub className="h-4 w-4" aria-hidden="true" /> },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/muskan-dodmani/', icon: <FaLinkedin className="h-4 w-4" aria-hidden="true" /> },
+    { name: 'Medium', href: 'https://medium.com/@muskandodmani222', icon: <FaMedium className="h-4 w-4" aria-hidden="true" /> },
+    { name: 'Dev.to', href: 'https://dev.to/muskan025', icon: <FaDev className="h-4 w-4" aria-hidden="true" /> },
+    { name: 'Daily.dev', href: 'https://app.daily.dev/muskan025', icon: <SiDailydotdev className="h-4 w-4" aria-hidden="true" /> },
+    { name: 'Instagram', href: 'https://www.instagram.com/poetry_frames_786/', icon: <FaInstagram className="h-4 w-4" aria-hidden="true" /> },
+  ];
+
    const [sliderSpeed, setSliderSpeed] = useState<SliderSpeed>('medium');
   const marqueeSkills = useMemo(() => [...techStack, ...techStack], [techStack]);
+  const [latestPost, setLatestPost] = useState<BlogPost | null>(null);
+
+useEffect(() => {
+  const fetchLatestPost = async () => {
+    try {
+      // Example using Dev.to API
+      const response = await fetch(
+        "https://dev.to/api/articles?username=muskan025&per_page=1"
+      );
+
+      const data = await response.json();
+
+      if (data.length > 0) {
+        setLatestPost({
+          title: data[0].title,
+          link: data[0].url,
+          pubDate: data[0].published_at,
+          cover_image: data[0].cover_image
+        });
+      }
+    } catch (error) {
+      console.error("Failed to fetch blog:", error);
+    }
+  };
+
+  fetchLatestPost();
+}, []);
+
   const myTime = new Date();
 
   return (
-    <main className="min-h-screen bg-[#f6f2e8] text-[#1d1d1b]">
-      <div className="mx-auto max-w-6xl px-4 pb-20 pt-8 md:px-8">
-        <header className="mb-8 rounded-3xl border-2 border-[#1d1d1b] bg-[#f9f6ef] px-5 py-4 shadow-[4px_4px_0_#1d1d1b]">
+    <main className="relative min-h-screen overflow-hidden text-[#1d1d1b]">
+  {/* Background Image */}
+  <div
+    className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat"
+    style={{
+      backgroundImage: `url('/wild-forest-bg.png')`,
+    }}
+  />
+
+  {/* Dark cinematic overlay */}
+  <div className="fixed inset-0 -z-10 bg-black/20" />
+
+  {/* Optional warm gradient overlay */}
+  <div className="fixed inset-0 -z-10 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
+
+  <div className="mx-auto max-w-6xl px-4 pb-20 pt-8 md:px-8">
+        <header className="mb-8 rounded-3xl border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md px-5 py-4 shadow-[4px_4px_0_#1d1d1b]">
           <nav className="flex flex-wrap items-center justify-between gap-3">
             <p className="text-sm uppercase tracking-[0.18em]">Muskan.dev</p>
             <ul className="flex items-center gap-3 text-sm md:gap-6 md:text-base">
@@ -62,17 +137,17 @@ function App() {
         </header>
         <section id="about" className="grid gap-4 md:grid-cols-[5fr_7fr]">
             <div className="flex flex-col gap-4">
-            <article className="relative rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef] p-6 shadow-[5px_5px_0_#1d1d1b] md:min-h-[390px]">
+            <article className="relative rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b] md:min-h-[390px]">
                <h1 className="mt-8 text-5xl uppercase leading-[0.95] sm:text-6xl md:text-7xl">Welcome</h1>
               <p className="mt-3 text-xl">to</p>
               <p className="mt-3 text-3xl font-medium sm:text-4xl">Nook of مُسکان</p>
             </article>
 
-            <blockquote className="rounded-[1.6rem] border-2 border-[#1d1d1b] bg-[#f9f6ef] p-4 text-sm italic shadow-[5px_5px_0_#1d1d1b] sm:text-base">
+            <blockquote className="rounded-[1.6rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-4 text-sm italic shadow-[5px_5px_0_#1d1d1b] sm:text-base">
               “The wheel of courage will run until you have the will to run the wheel.” — Muskan Dodmani
             </blockquote>
         </div>
-            <aside className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef] p-6 shadow-[5px_5px_0_#1d1d1b] md:min-h-[390px]">
+            <aside className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b] md:min-h-[390px]">
             <div className="flex flex-wrap items-center justify-between gap-3">
 <span className="rounded-full border-2 border-[#1d1d1b] bg-[#fffdf8] px-4 py-1 text-base flex items-center gap-2">
   <span className="relative flex h-3 w-3">
@@ -100,7 +175,7 @@ function App() {
                 {languages.map((language) => (
                   <span
                     key={language.name}
-                    className="group relative z-0 cursor-default whitespace-nowrap rounded-full border-2 border-[#1d1d1b] bg-[#f9f6ef] px-3 py-1 font-medium transition-all duration-200 hover:z-[9998] hover:-translate-y-0.5 hover:bg-[#1d1d1b] hover:text-[#fff9ef]"
+                    className="group relative z-0 cursor-default whitespace-nowrap rounded-full border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md px-3 py-1 font-medium transition-all duration-200 hover:z-[9998] hover:-translate-y-0.5 hover:bg-[#1d1d1b] hover:text-[#fff9ef]"
                   >
                     <span className="flex items-center gap-2">
                       <span className="h-2 w-2 rounded-full transition-colors duration-300 group-hover:bg-[#ffd166]" style={{ backgroundColor: language.color }}  />
@@ -142,7 +217,7 @@ function App() {
         </section>
 
        <section id="projects" className="mt-10 grid gap-4 md:grid-cols-[3fr_7fr]">
-          <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef] p-6 shadow-[5px_5px_0_#1d1d1b]">
+          <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b]">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-3xl uppercase">Projects →</h3>
             </div>
@@ -155,7 +230,7 @@ function App() {
             </div>
           </article>
 
-          <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef] p-6 shadow-[5px_5px_0_#1d1d1b] overflow-hidden">
+          <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b] overflow-hidden">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-3xl uppercase">Skills →</h3>
                <div className="flex items-center gap-2" aria-label="Slider speed controls">
@@ -171,8 +246,10 @@ function App() {
                     key={`${tech.name}-${index}`}
                     className="skill-pill whitespace-nowrap rounded-full border-2 border-[#1d1d1b] px-4 py-1.5 text-base font-medium"
                   >
-                    <span className="inline-flex items-center gap-2">
-                      <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: tech.color }} />
+                    <span className="inline-flex items-center gap-2 cursor-pointer">
+       <span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-[#1d1d1b] bg-[#fff9ef]">
+                        {skillLogos[tech.name] ?? <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: tech.color }} />}
+                      </span>
                       {tech.name}
                     </span>
                   </span>
@@ -183,31 +260,68 @@ function App() {
         </section>
         
         <section id="contact" className="mt-6 grid gap-4 md:grid-cols-[6fr_4fr]">
-          <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef] p-6 shadow-[5px_5px_0_#1d1d1b]">
+          <article className="self-start rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b]">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-3xl uppercase">Connect →</h3>
             </div>
             <div className="rounded-2xl border-2 border-[#1d1d1b] bg-[#fffdf8] p-4">
-              <div className="flex flex-wrap gap-2">
-                <a href="mailto:muskandodmani222@gmail.com" target='_blank' rel="noopener noreferrer" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">Email</a>
-                <a href="https://github.com/muskan025" target='_blank' rel="noopener noreferrer" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">GitHub</a>
-                <a href="https://www.linkedin.com/in/muskan-dodmani/" target='_blank' rel="noopener noreferrer" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">LinkedIn</a>
-                <a href="https://medium.com/@muskandodmani222" target='_blank' rel="noopener noreferrer" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">Medium</a>
-                <a href="https://dev.to/muskan025" target='_blank' rel="noopener noreferrer" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">Dev.to</a>
-                <a href="https://app.daily.dev/muskan025" target='_blank' rel="noopener noreferrer" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">Daily.dev</a>
-                <a href="https://www.instagram.com/poetry_frames_786/" target='_blank' rel="noopener noreferrer" className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-base hover:bg-[#f6f2e8]">Instagram</a>
+              <div className="inline-flex  flex-wrap gap-2">
+               {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={social.name}
+                    aria-label={social.name}
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1d1d1b] text-base hover:bg-[#f6f2e8]"
+                  >
+                    {social.icon}
+                  </a>
+                ))}
               </div>
             </div>
           </article>
 
-          <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef] p-6 shadow-[5px_5px_0_#1d1d1b]">
+          <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b]">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-3xl uppercase">Blogs →</h3>
               <p className="text-sm">fetched via API</p>
             </div>
             <div className="rounded-2xl border-2 border-[#1d1d1b] bg-[#fffdf8] p-4">
-              <p className="text-lg font-semibold">Latest writing drops here</p>
-              <p className="mt-1 text-sm">Connect your blog API feed to render recent posts.</p>
+             {latestPost ? (
+ <div
+  className="relative h-48 overflow-hidden rounded-xl border-2 border-[#1d1d1b] bg-cover bg-center"
+  style={{
+    backgroundImage: `url(${latestPost.cover_image})`,
+  }}
+>
+  <div className="absolute inset-0 bg-black/40" />
+
+  <div className="absolute bottom-0 left-0 z-10 p-4 text-[#fffdf8]">
+    <p className="text-xs uppercase tracking-wide opacity-80">
+      Latest Post
+    </p>
+
+    <a
+      href={latestPost.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-1 block text-lg font-semibold hover:underline"
+    >
+      {latestPost.title}
+    </a>
+
+    <p className="mt-1 text-sm opacity-80">
+      {latestPost.pubDate
+        ? new Date(latestPost.pubDate).toLocaleDateString()
+        : "Recently published"}
+    </p>
+  </div>
+</div>
+) : (
+  <p className="text-sm">Loading latest post...</p>
+)}
             </div>
           </article>
         </section>
