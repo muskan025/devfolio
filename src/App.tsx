@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { FaDev, FaGithub, FaInstagram, FaLinkedin, FaMedium, FaNodeJs, FaArrowRight } from 'react-icons/fa';
+import { FaDev, FaGithub, FaInstagram, FaLinkedin, FaMedium, FaNodeJs, FaArrowRight, FaLeaf } from 'react-icons/fa';
 import { SiDocker, SiExpress, SiMongodb, SiRedis, SiTailwindcss, SiTypescript, SiGmail, SiDailydotdev, SiReactquery } from 'react-icons/si';
 import { TbBrandReact } from 'react-icons/tb';
 
@@ -108,7 +108,7 @@ useEffect(() => {
   const myTime = new Date();
 
   return (
-    <main className="relative min-h-screen overflow-hidden text-[#1d1d1b]">
+    <main className="relative min-h-screen overflow-hidden text-[#2f2a22]">
   {/* Background Image */}
   <div
     className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat"
@@ -124,7 +124,7 @@ useEffect(() => {
   <div className="fixed inset-0 -z-10 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
 
   <div className="mx-auto max-w-6xl px-4 pb-20 pt-8 md:px-8">
-        <header className="mb-8 rounded-3xl border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md px-5 py-4 shadow-[4px_4px_0_#1d1d1b]">
+        <header className="mb-8 rounded-3xl border-2 border-[#1d1d1b] bg-[rgba(235,244,248,0.5)] backdrop-blur-md px-5 py-4 shadow-[4px_4px_0_#1d1d1b]">
           <nav className="flex flex-wrap items-center justify-between gap-3">
             <p className="text-sm uppercase tracking-[0.18em]">Muskan.dev</p>
             <ul className="flex items-center gap-3 text-sm md:gap-6 md:text-base">
@@ -135,19 +135,71 @@ useEffect(() => {
             <button className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-sm">Mode</button>
           </nav>
         </header>
-        <section id="about" className="grid gap-4 md:grid-cols-[5fr_7fr]">
+        <section id="about" className="grid gap-4 md:grid-cols-[5fr_4fr]">
             <div className="flex flex-col gap-4">
-            <article className="relative rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b] md:min-h-[390px]">
-               <h1 className="mt-8 text-5xl uppercase leading-[0.95] sm:text-6xl md:text-7xl">Welcome</h1>
-              <p className="mt-3 text-xl">to</p>
-              <p className="mt-3 text-3xl font-medium sm:text-4xl">Nook of مُسکان</p>
-            </article>
+           <article
+  className="relative overflow-hidden rounded-[2rem] border-2 border-[#1d1d1b] p-6 shadow-[0_12px_35px_rgba(0,0,0,0.18)] md:min-h-[390px]"
+  style={{
+    backgroundImage: `url('/welcome-bg.jpeg')`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }}
+>
+  {/* cinematic overlays */}
+  <div className="absolute inset-0 bg-black/25" />
+  <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/10 to-transparent" />
 
-            <blockquote className="rounded-[1.6rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-4 text-sm italic shadow-[5px_5px_0_#1d1d1b] sm:text-base">
-              “The wheel of courage will run until you have the will to run the wheel.” — Muskan Dodmani
-            </blockquote>
+  {/* glow */}
+  <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-[#ffd166]/20 blur-3xl" />
+
+  {/* content */}
+ <div className="relative z-10 max-w-[65%] text-left">
+    <h1 className="text-5xl uppercase tracking-wide sm:text-6xl md:text-7xl text-[#fffdf8]">
+      Welcome
+    </h1>
+
+    <p className="mt-3 text-lg font-medium text-[#fffdf8]">to</p>
+
+    <p className="mt-1 text-4xl font-medium sm:text-5xl text-[#fffdf8]">
+      Nook of مُسکان
+    </p>
+
+    <div className="mt-6">
+      <p className="mb-4 text-xl text-[#fffdf8]">
+        Explorer. Developer. Dreamer.
+      </p>
+
+      <p className="max-w-md text-base leading-relaxed text-[#f5efe4]/90 font-light">
+        I build digital experiences that feel human,
+        thoughtful, and beautifully crafted.
+      </p>
+    </div>
+
+    {/* Let's Connect Button */}
+    <a 
+      href="mailto:muskandodmani222@gmail.com"
+      className="group mt-8 inline-flex items-center gap-2 rounded-full border-2 border-[#1d1d1b] bg-gradient-to-br from-[#6b7b4a] to-[#46542f] px-6 py-2.5 text-sm font-medium text-[#fffdf8] shadow-[3px_3px_0_#1d1d1b] transition-all hover:translate-y-[2px] hover:shadow-[1px_1px_0_#1d1d1b] active:translate-y-[3px] active:shadow-none"
+    >
+      Let's Connect
+      <FaLeaf className="text-xs text-[#b8d28a] transition-transform group-hover:rotate-12" />
+    </a>
+  </div>
+</article>
+
+           <blockquote className="relative overflow-hidden rounded-[1.6rem] border-2 border-[#1d1d1b] bg-[rgba(255,248,235,0.45)] backdrop-blur-md p-4 text-sm italic shadow-[0_12px_35px_rgba(0,0,0,0.18)] sm:text-base">
+  
+  {/* soft cinematic glow */}
+  <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#ffd166]/20 blur-3xl" />
+
+  <p className="relative z-10 leading-relaxed text-[#2f2a22]">
+    “The wheel of courage will run until you have the will to run the wheel.”
+    <span className="block mt-2 text-xs not-italic uppercase tracking-[0.12em] text-[#5f5648]">
+      — Muskan Dodmani
+    </span>
+  </p>
+</blockquote>
         </div>
-            <aside className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b] md:min-h-[390px]">
+            <aside className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[rgba(248,242,235,0.5)]  backdrop-blur-md p-6 shadow-[0_12px_35px_rgba(0,0,0,0.18)] md:min-h-[390px]">
             <div className="flex flex-wrap items-center justify-between gap-3">
 <span className="rounded-full border-2 border-[#1d1d1b] bg-[#fffdf8] px-4 py-1 text-base flex items-center gap-2">
   <span className="relative flex h-3 w-3">
@@ -158,7 +210,7 @@ useEffect(() => {
 </span>              <button className="rounded-xl border-2 border-[#1d1d1b] bg-[#fffdf8] px-4 py-1 text-base">Resume ↓</button>
             </div>
 
-<h2 className="mt-4 text-4xl font-semibold leading-none sm:text-5xl">
+<h2 className="mt-4 text-2xl font-semibold leading-none sm:text-3xl">
   <span className=''>I&apos;m a{" "}</span>
   <span className="inline-block align-bottom overflow-hidden whitespace-nowrap border-r-2 border-[#1d1d1b] animate-typing">
     Software Engineer
@@ -218,22 +270,28 @@ useEffect(() => {
 
        <section id="projects" className="mt-10 grid gap-4 md:grid-cols-[3fr_5fr]">
           <article
-  className="relative overflow-hidden rounded-[2rem] border-2 border-[#1d1d1b] p-6 shadow-[5px_5px_0_#1d1d1b]"
+  className="relative overflow-hidden rounded-[2rem] border-2 border-[#1d1d1b] p-6 shadow-[0_12px_35px_rgba(0,0,0,0.18)]"
   style={{
-    backgroundImage: `url('/forest-card-bg.jpg')`,
+    backgroundImage: `url('/forest-river.png')`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   }}
 >
-  {/* cinematic overlay */}
-  <div className=" inset-0 bg-[#f9f6ef]/75 backdrop-blur-sm absolute" />
+
+ {/* cinematic overlay */}
+<div className="absolute inset-0 bg-black/20" />
+
+{/* soft warm tint */}
+<div className="absolute inset-0 bg-gradient-to-br from-[#f9f6ef]/20 via-transparent to-[#d6c3a5]/20" />
 
   <div className="relative z-10">
     <div className="mb-4 flex items-center justify-between">
       <h3 className="text-3xl uppercase">Projects →</h3>
     </div>
 
-    <div className="relative inline-flex flex-col rounded-2xl border-2 border-[#1d1d1b] bg-[#fffdf8]/90 p-4">
+    <div className="relative inline-flex flex-col rounded-2xl border-2 border-[#1d1d1b] bg-[rgba(255,248,240,0.28)]
+backdrop-blur-lg
+border border-white/20 p-4">
       <div className="space-y-3">
         {projects.map((project) => (
           <div
@@ -246,8 +304,8 @@ useEffect(() => {
           </div>
         ))}
       </div>
-       <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#1d1d1b] bg-[#fffdf8] transition-transform duration-300 group-hover:translate-x-1  absolute right-4 -bottom-4 cursor-pointer">
-              <FaArrowRight className="text-xs" />
+       <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#1d1d1b] bg-[#fffdf8] transition-transform duration-300 group-hover:translate-x-1  absolute right-4 -bottom-4 cursor-pointer hover:bg-black hover:text-white">
+              <FaArrowRight className="text-xs " />
             </div>
     </div>
   </div>
@@ -256,10 +314,13 @@ useEffect(() => {
         <div className="flex flex-col gap-4 h-full overflow-hidden">
 
   {/* Skills Card */}
-  <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b]">
+  <article className="rounded-[2rem]   bg-[rgba(255,248,235,0.45)]
+backdrop-blur-md backdrop-blur-md p-6 border border-white/20
+shadow-[0_8px_32px_rgba(15,23,42,0.18)]]">
+  
     
     <div className="mb-4 flex items-center justify-between">
-      <h3 className="text-3xl uppercase">Skills →</h3>
+      <h3 className="text-3xl uppercase">Skills</h3>
 
       <div className="flex items-center gap-2 overflow-hidden" aria-label="Slider speed controls">
         <button
@@ -277,7 +338,7 @@ useEffect(() => {
       </div>
     </div>
 
-    <div className="skills-shell overflow-hidden rounded-2xl border-2 border-[#1d1d1b] bg-[#fffdf8] p-4">
+    <div className="skills-shell overflow-hidden rounded-2xl border-2 border-[#1d1d1b] bg-[rgba(240,248,242,0.5)] p-4">
       <div
         className="skills-marquee"
         style={{
@@ -303,7 +364,7 @@ useEffect(() => {
   </article>
 
   {/* Currently Learning */}
-  <article className="self-start relative overflow-hidden rounded-[2rem] border-2 border-[#1d1d1b] bg-gradient-to-br from-[#fff7e8] via-[#f4ecdd] to-[#efe4cf] p-6 shadow-[5px_5px_0_#1d1d1b]">
+  <article className="self-start relative overflow-hidden rounded-[2rem] border-2 border-[#1d1d1b] bg-[rgba(255,248,235,0.45)] p-6 shadow-[0_12px_35px_rgba(0,0,0,0.18)]">
 
     {/* glowing blur */}
     <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#ffd166]/30 blur-3xl" />
@@ -321,10 +382,10 @@ useEffect(() => {
 
       <div className="flex flex-wrap gap-3">
         {[
-          'System Design',
-          'AWS',
-          'BullMQ',
-          'TanStack Query',
+          'AI integration',
+          'AWS EC2',
+          'Docker',
+          
         ].map((item) => (
           <div
             key={item}
@@ -346,7 +407,7 @@ useEffect(() => {
         </section>
         
         <section id="contact" className="mt-6 grid gap-4 md:grid-cols-[4fr_6fr]">
-          <article className="self-start rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b]">
+          <article className="self-start rounded-[2rem] border-2 border-[#1d1d1b] bg-[rgba(248,242,235,0.5)] backdrop-blur-md p-6 shadow-[0_12px_35px_rgba(0,0,0,0.18)]">
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-3xl uppercase">Connect →</h3>
             </div>
@@ -369,7 +430,7 @@ useEffect(() => {
             </div>
           </article>
 
-          <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[#f9f6ef]/80 backdrop-blur-md p-6 shadow-[5px_5px_0_#1d1d1b]">
+          <article className="rounded-[2rem] border-2 border-[#1d1d1b] bg-[rgba(235,244,248,0.5)] backdrop-blur-md p-6 shadow-[0_12px_35px_rgba(0,0,0,0.18)]">
             <div className="mb-4 flex items-center justify-between">
   <h3 className="text-3xl uppercase">Blogs →</h3>
 
