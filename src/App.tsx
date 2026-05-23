@@ -34,7 +34,7 @@ type BlogPost = {
   cover_image:string
 };
 
-function App() {
+function HomePage() {
    const projects = [
     { title: 'AudioTrack Classmate', stack: ['Node.js', 'MongoDB', 'React'] },
     { title: 'Language Companion', stack: ['TypeScript', 'Tailwind', 'Framer Motion'] },
@@ -79,8 +79,7 @@ function App() {
    const [sliderSpeed, setSliderSpeed] = useState<SliderSpeed>('medium');
   const marqueeSkills = useMemo(() => [...techStack, ...techStack], [techStack]);
   const [latestPost, setLatestPost] = useState<BlogPost | null>(null);
- const [showProjectTimeline, setShowProjectTimeline] = useState(false);
-
+ 
 useEffect(() => {
   const fetchLatestPost = async () => {
     try {
@@ -306,14 +305,13 @@ border border-white/20 p-4">
           </div>
         ))}
       </div>
-       <button
-              type="button"
-              onClick={() => setShowProjectTimeline((prev) => !prev)}
+      <a
+              href="/timeline"
               className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#1d1d1b] bg-[#fffdf8] transition-transform duration-300 group-hover:translate-x-1 absolute right-4 -bottom-4 cursor-pointer hover:bg-black hover:text-white"
-              aria-label="Toggle project timeline"
+              aria-label="Open project timeline page"
             >
-              <FaArrowRight className={`text-xs transition-transform ${showProjectTimeline ? "rotate-90" : ""}`} />
-            </button>
+              <FaArrowRight className="text-xs transition-transform" />
+            </a>
     </div>
   </div>
 </article>
@@ -412,7 +410,7 @@ shadow-[0_8px_32px_rgba(15,23,42,0.18)]]">
   </article>
 </div>
         </section>
-         {showProjectTimeline ? <ProjectTimeline /> : null}
+         
         <section id="contact" className="mt-6 grid gap-4 md:grid-cols-[4fr_6fr]">
           <article className="self-start rounded-[2rem] border-2 border-[#1d1d1b] bg-[rgba(248,242,235,0.5)] backdrop-blur-md p-6 shadow-[0_12px_35px_rgba(0,0,0,0.18)]">
             <div className="mb-4 flex items-center justify-between">
@@ -493,6 +491,22 @@ shadow-[0_8px_32px_rgba(15,23,42,0.18)]]">
       </div>
           </main>
   );
+}
+
+function App() {
+  const [path, setPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const onPopState = () => setPath(window.location.pathname);
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, []);
+
+  if (path === "/timeline") {
+    return <ProjectTimeline />;
+  }
+
+  return <HomePage />;
 }
 
 export default App;
