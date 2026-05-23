@@ -1,91 +1,16 @@
-import { useEffect, useRef, useState } from "react";
-import { TabKey } from "../App";
+// @ts-nocheck
+import { SectionCard } from './SectionCard';
 
-export interface NavbarProps {
-  tab: TabKey;
-  setTab: React.Dispatch<React.SetStateAction<TabKey>>;
-  left: number;
-  sliderWidth: number;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ tab, setTab }) => {
-  const tabs = [
-    { key: TabKey.About, label: "About" },
-    { key: TabKey.Projects, label: "Growth" },
-    { key: TabKey.Contact, label: "Socialize" },
-  ];
-
-  const [sliderStyle, setSliderStyle] = useState({ left: 0, width: 0 });
-  const tabRefs = useRef<HTMLDivElement[]>([]); // Array of refs for each tab
-
-  const updateSliderStyle = () => {
-    const activeTabIndex = tabs.findIndex((t) => t.key === tab);
-    const activeTabRef = tabRefs.current[activeTabIndex];
-
-    if (activeTabRef) {
-      const { offsetLeft, offsetWidth } = activeTabRef;
-      setSliderStyle({
-        left: offsetLeft,
-        width: offsetWidth,
-      });
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", updateSliderStyle); // Add resize listener
-    return () => {
-      window.removeEventListener("resize", updateSliderStyle); // Clean up listener
-    };
-  }, [tab]); // Recalculate whenever the active tab changes
-
-  useEffect(() => {
-    updateSliderStyle(); // Initial slider style update
-  }, [tab]);
-
+export function Navbar() {
   return (
-    <div
-      className="text-white mx-auto top-0 z-[10000] backdrop-saturate-180 w-full pt-2"
-      style={{
-        marginTop: "30px",
-        marginBottom: "30px",
-        paddingLeft: "10px",
-        paddingRight: "10px",
-      }}
-    >
-      <div className="bg-[#181818] bg-opacity-80 max-w-[500px] w-full m-auto rounded-full text-1.8rem p-[8px]">
-        <div className="flex rounded-full p-2 justify-between items-center text-white mx-auto relative">
-
-          {/* Tabs */}
-          {tabs.map(({ key, label }, index) => (
-            <div
-              key={key}
-              ref={(el) => (tabRefs.current[index] = el!)}
-              className={`flex items-center h-8 flex-1 cursor-pointer justify-center ${
-                tab === key ? "text-white" : "text-white"
-              }`}
-              onClick={() => setTab(key)}
-              style={{ zIndex: 30 }}
-            >
-              <span className="text-lg hover:text-cyan-500 transition-colors duration-300">
-                {label}
-              </span>
-            </div>
-          ))}
-
-          {/* Sliding highlight div */}
-          <div
-            className="absolute h-10 bg-[#505050]/40 border-0 border-[#FFFFFF] rounded-full z-20"
-            style={{
-              left: `${sliderStyle.left}px`,
-              width: `${sliderStyle.width}px`,
-              transition:
-                "left 0.38s cubic-bezier(0.4, 0, 0.2, 1), width 0.38s",
-            }}
-          ></div>
-        </div>
-      </div>
-    </div>
+    <SectionCard as="header" className="mb-8 rounded-3xl border-2 border-[#1d1d1b] bg-[rgba(235,244,248,0.5)] backdrop-blur-md px-5 py-4 shadow-[4px_4px_0_#1d1d1b]">
+      <nav className="flex flex-wrap items-center justify-between gap-3">
+        <p className="text-sm uppercase tracking-[0.18em]">Muskan.dev</p>
+        <ul className="flex items-center gap-3 text-sm md:gap-6 md:text-base">
+          <li><a href="#about" className="hover:underline">About</a></li><li><a href="#projects" className="hover:underline">Projects</a></li><li><a href="#contact" className="hover:underline">Contact</a></li>
+        </ul>
+        <button className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-sm">Mode</button>
+      </nav>
+    </SectionCard>
   );
-};
-
-export default Navbar;
+}
