@@ -9,10 +9,10 @@ export function LearningCard() {
       <div className="absolute -right-10 -top-20 h-30 w-32 rounded-full bg-[#ffd166]/30 blur-3xl" />
       <div className="relative z-10">
         <div className="mb-3 flex items-center justify-between">
-          <h4 className="text-2xl uppercase tracking-wide">
+          <h4 className="text-sm font-semibold uppercase tracking-[0.22em]">
             Currently Learning
           </h4>
-          <span className={`${CHIP} px-3 py-1 text-[10px] font-bold uppercase tracking-[0.15em]`}>
+          <span className={`${CHIP} px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em]`}>
             In Progress
           </span>
         </div>
@@ -27,7 +27,7 @@ export function LearningCard() {
             </div>
           ))}
         </div>
-        <p className={`mt-4 leading-relaxed ${MUTED_TEXT}`}>
+        <p className={`mt-4 text-base leading-7 ${MUTED_TEXT}`}>
           Building deeper backend architecture skills and scalable systems with
           curiosity, caffeine, and occasional existential debugging.
         </p>

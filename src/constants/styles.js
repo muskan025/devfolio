@@ -3,10 +3,11 @@ export const CARD_CONTAINER =
 
 export const CARD_HEADER = "mb-3 flex items-center justify-between";
 
-export const SECTION_TITLE = "text-3xl uppercase";
+export const SECTION_TITLE =
+  "text-sm font-semibold uppercase tracking-[0.22em]";
 
 export const CHIP =
-  "rounded-full border-2 border-[#1d1d1b] bg-[#fffdf8] px-4 py-1 text-base";
+  "rounded-full border-2 border-[#1d1d1b] bg-[#fffdf8] px-4 py-1 text-sm font-medium";
 
 export const BUTTON =
   "group inline-flex items-center gap-2 rounded-xl border-2 border-[#1d1d1b] bg-[#fffdf8] px-4 py-1.5 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1d1d1b] hover:text-[#fffdf8]";
@@ -14,7 +15,7 @@ export const BUTTON =
 export const ICON_CIRCLE =
   "inline-flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#1d1d1b] text-base hover:bg-[#f6f2e8]";
 
-export const MUTED_TEXT = "text-sm text-[#4b463d]";
+export const MUTED_TEXT = "text-base leading-7 text-[#4b463d]";
 
 export const BORDERED_PANEL =
   "rounded-2xl border-2 border-[#1d1d1b] bg-[#fffdf8] p-3.5";
