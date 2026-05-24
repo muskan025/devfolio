@@ -5,7 +5,7 @@ import { CARD_CONTAINER, CARD_HEADER, ICON_CIRCLE, SECTION_TITLE } from '../cons
 
 export function ProjectsCard({ projects }) {
   return (
-    <SectionCard className={`relative overflow-hidden ${CARD_CONTAINER}`} style={{ backgroundImage: `url('/forest-river.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <SectionCard className={`relative overflow-hidden min-h-[430px] h-full ${CARD_CONTAINER}`}  style={{ backgroundImage: `url('/forest-river.png')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="absolute inset-0 bg-black/20" />
       <div className="absolute inset-0 bg-gradient-to-br from-[#f9f6ef]/20 via-transparent to-[#d6c3a5]/20" />
       <div className="relative z-10"><div className={CARD_HEADER}><h3 className={SECTION_TITLE}>Projects →</h3></div>

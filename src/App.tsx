@@ -48,10 +48,10 @@ function HomePage() {
       <div className="fixed inset-0 -z-10 bg-black/20" />
       <div className="fixed inset-0 -z-10 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
 
-      <div className="mx-auto w-full max-w-[1320px] space-y-5">
+      <div className="mx-auto w-full max-w-7xl space-y-6">
         <Navbar />
 
-        <section id="about" className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1.35fr)_minmax(360px,1fr)]">
+        <section id="about" className="grid grid-cols-1 gap-6 lg:grid-cols-[1.35fr_1fr] lg:items-stretch">
           <div className="min-w-0">
             <HeroCard />
           </div>
@@ -62,12 +62,12 @@ function HomePage() {
 
         <QuoteStrip />
 
-        <section id="projects" className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(360px,0.75fr)_minmax(0,1fr)]">
+        <section id="projects" className="grid grid-cols-1 gap-6 lg:grid-cols-[0.72fr_1fr] lg:items-stretch">
           <div className="min-w-0">
             <ProjectsCard projects={projects} />
           </div>
 
-          <div className="min-w-0 space-y-5">
+          <div className="min-w-0 space-y-6">
             <SkillsCard
               sliderSpeed={sliderSpeed}
               setSliderSpeed={setSliderSpeed}
@@ -79,7 +79,7 @@ function HomePage() {
           </div>
         </section>
 
-        <section id="contact" className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(360px,0.65fr)_minmax(0,1fr)]">
+        <section id="contact" className="grid grid-cols-1 gap-6 lg:grid-cols-[0.65fr_1fr] lg:items-stretch">
           <div className="min-w-0">
             <ConnectCard socialLinks={socialLinks} />
           </div>

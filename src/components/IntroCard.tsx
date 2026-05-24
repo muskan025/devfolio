@@ -4,7 +4,7 @@ import { BORDERED_PANEL, CARD_CONTAINER, CHIP, SECTION_TITLE } from '../constant
 
 export function IntroCard({ languages, myTime }) {
   return (
-    <SectionCard as="aside" className={`${CARD_CONTAINER} bg-[rgba(248,242,235,0.5)]  backdrop-blur-md md:min-h-[390px]`}>
+    <SectionCard as="aside" className={`${CARD_CONTAINER} bg-[rgba(248,242,235,0.5)]  backdrop-blur-md min-h-[520px] h-full`}>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <span className={`${CHIP} flex items-center gap-2`}><span className="relative flex h-3 w-3"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span><span className="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span></span>Available To Work</span>
         <button className="rounded-xl border-2 border-[#1d1d1b] bg-[#fffdf8] px-4 py-1 text-base">Resume ↓</button>
