@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import type { JSX } from 'react';
 import { FaDev, FaGithub, FaInstagram, FaLinkedin, FaMedium, FaNodeJs } from 'react-icons/fa';
 import { SiDocker, SiExpress, SiMongodb, SiRedis, SiTailwindcss, SiTypescript, SiGmail, SiDailydotdev, SiReactquery } from 'react-icons/si';
 import { TbBrandReact } from 'react-icons/tb';
@@ -42,17 +43,42 @@ function HomePage() {
   const myTime = new Date();
 
   return (
-       <main className="relative min-h-screen overflow-hidden text-[#2f2a22]">
-    <div className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('/wild-forest-bg.png')` }} />
+    <main className="relative min-h-screen overflow-hidden px-6 py-8 text-[#2f2a22]">
+      <div className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('/wild-forest-bg.png')` }} />
       <div className="fixed inset-0 -z-10 bg-black/20" />
       <div className="fixed inset-0 -z-10 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
-      <div className="mx-auto max-w-6xl px-4 pb-20 pt-8 md:px-8">
+
+      <div className="mx-auto max-w-7xl space-y-6">
         <Navbar />
-        <section id="about" className="grid gap-4 md:grid-cols-[5fr_4fr]"><div className="flex flex-col gap-4"><HeroCard /><QuoteStrip /></div><IntroCard languages={languages} myTime={myTime} /></section>
-        <section id="projects" className="mt-10 grid gap-4 md:grid-cols-[3fr_5fr]"><ProjectsCard projects={projects} /><div className="flex flex-col gap-4 h-full overflow-hidden"><SkillsCard sliderSpeed={sliderSpeed} setSliderSpeed={setSliderSpeed} sliderSpeeds={sliderSpeeds} marqueeSkills={marqueeSkills} skillLogos={skillLogos} /><LearningCard /></div></section>
-        <section id="contact" className="mt-6 grid gap-4 md:grid-cols-[4fr_6fr]"><ConnectCard socialLinks={socialLinks} /><BlogCard latestPost={latestPost} /></section>
-        </div>
-        </main>
+
+        <section id="about" className="grid grid-cols-1 gap-6 lg:grid-cols-[1.25fr_1fr]">
+          <HeroCard />
+          <IntroCard languages={languages} myTime={myTime} />
+        </section>
+
+        <QuoteStrip />
+
+        <section id="projects" className="grid grid-cols-1 gap-6 lg:grid-cols-[0.72fr_1fr]">
+          <ProjectsCard projects={projects} />
+
+          <div className="space-y-6">
+            <SkillsCard
+              sliderSpeed={sliderSpeed}
+              setSliderSpeed={setSliderSpeed}
+              sliderSpeeds={sliderSpeeds}
+              marqueeSkills={marqueeSkills}
+              skillLogos={skillLogos}
+            />
+            <LearningCard />
+          </div>
+        </section>
+
+        <section id="contact" className="grid grid-cols-1 gap-6 lg:grid-cols-[0.65fr_1fr]">
+          <ConnectCard socialLinks={socialLinks} />
+          <BlogCard latestPost={latestPost} />
+        </section>
+      </div>
+    </main>
   );
 }
 
