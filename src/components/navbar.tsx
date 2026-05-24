@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { SectionCard } from './SectionCard';
+import { navLinks } from '../data/portfolioData';
 
 export function Navbar() {
   return (
@@ -7,7 +8,7 @@ export function Navbar() {
       <nav className="flex flex-wrap items-center justify-between gap-3">
         <p className="text-sm uppercase tracking-[0.18em]">Muskan.dev</p>
         <ul className="flex items-center gap-3 text-sm md:gap-6 md:text-base">
-          <li><a href="#about" className="hover:underline">About</a></li><li><a href="#projects" className="hover:underline">Projects</a></li><li><a href="#contact" className="hover:underline">Contact</a></li>
+          {navLinks.map((link) => (<li key={link.href}><a href={link.href} className="hover:underline">{link.label}</a></li>))}
         </ul>
         <button className="rounded-full border-2 border-[#1d1d1b] px-4 py-1 text-sm">Mode</button>
       </nav>

@@ -12,14 +12,7 @@ import { SkillsCard } from './components/SkillsCard';
 import { LearningCard } from './components/LearningCard';
 import { ConnectCard } from './components/ConnectCard';
 import { BlogCard } from './components/BlogCard';
-
-const languages = [
-  { name: 'English', color: '#ef4444', proficiency: 'Fluent', flair: 'Nuanced professional communication' },
-  { name: 'Hindi', color: '#10b981', proficiency: 'Fluent', flair: 'Native-level comfort in conversation' },
-  { name: 'Urdu', color: '#f59e0b', proficiency: 'Fluent', flair: 'Expressive and culturally rich tone' },
-  { name: 'Konkani', color: '#8b5cf6', proficiency: 'Fluent', flair: 'Warm day-to-day communication' },
-  { name: 'Arabic', color: '#3b82f6', proficiency: 'Beginner', flair: 'Actively learning with consistency' },
-];
+import { languages, projects, skills, socialLinks } from './data/portfolioData.js';
 
 const sliderSpeeds = { slow: 0, medium: 15, fast: 5 } as const;
 
@@ -36,25 +29,13 @@ export enum TabKey {
 
 
 function HomePage() {
-   const projects = [{ title: 'AudioTrack Classmate', stack: ['Node.js', 'MongoDB', 'React'] }, { title: 'Language Companion', stack: ['TypeScript', 'Tailwind', 'Framer Motion'] }, { title: 'Portfolio V2', stack: ['Vite', 'React', 'API Integrations'] }];
-  const techStack = [{ name: 'Node.js', color: '#3b82f6' }, { name: 'Express', color: '#ef4444' }, { name: 'MongoDB', color: '#10b981' }, { name: 'Redis', color: '#f59e0b' }, { name: 'BullMQ', color: '#f59e0b' }, { name: 'Docker', color: '#10b981' }, { name: 'React', color: '#ef4444' }, { name: 'TypeScript', color: '#f59e0b' }, { name: 'Tailwind', color: '#8b5cf6' }, { name: 'Tanstack Query', color: '#3b82f6' }];
+    
   const skillLogos: Record<string, JSX.Element> = {
     'Node.js': <FaNodeJs className="h-4 w-4 text-[#3c873a]" aria-hidden="true" />, Express: <SiExpress className="h-4 w-4 text-[#111111]" aria-hidden="true" />, MongoDB: <SiMongodb className="h-4 w-4 text-[#10aa50]" aria-hidden="true" />, Redis: <SiRedis className="h-4 w-4 text-[#dc382d]" aria-hidden="true" />, BullMQ: <SiRedis className="h-4 w-4 text-[#d97706]" aria-hidden="true" />, Docker: <SiDocker className="h-4 w-4 text-[#2496ed]" aria-hidden="true" />, React: <TbBrandReact className="h-4 w-4 text-[#61dafb]" aria-hidden="true" />, TypeScript: <SiTypescript className="h-4 w-4 text-[#3178c6]" aria-hidden="true" />, Tailwind: <SiTailwindcss className="h-4 w-4 text-[#06b6d4]" aria-hidden="true" />, 'Tanstack Query': <SiReactquery className="h-4 w-4 text-[#ff4154]" aria-hidden="true" />,
   };
 
-  const socialLinks = [
-    { name: 'Email', href: 'mailto:muskandodmani222@gmail.com', icon: <SiGmail className="h-4 w-4" aria-hidden="true" /> },
-    { name: 'GitHub', href: 'https://github.com/muskan025', icon: <FaGithub className="h-4 w-4" aria-hidden="true" /> },
-    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/muskan-dodmani/', icon: <FaLinkedin className="h-4 w-4" aria-hidden="true" /> },
-    { name: 'Medium', href: 'https://medium.com/@muskandodmani222', icon: <FaMedium className="h-4 w-4" aria-hidden="true" /> },
-    { name: 'Dev.to', href: 'https://dev.to/muskan025', icon: <FaDev className="h-4 w-4" aria-hidden="true" /> },
-    { name: 'Daily.dev', href: 'https://app.daily.dev/muskan025', icon: <SiDailydotdev className="h-4 w-4" aria-hidden="true" /> },
-    { name: 'Instagram', href: 'https://www.instagram.com/poetry_frames_786/', icon: <FaInstagram className="h-4 w-4" aria-hidden="true" /> },
-  ];
-
    const [sliderSpeed, setSliderSpeed] = useState<SliderSpeed>('medium');
-  const marqueeSkills = useMemo(() => [...techStack, ...techStack], [techStack]);
-  const [latestPost, setLatestPost] = useState<BlogPost | null>(null);
+  const marqueeSkills = useMemo(() => [...skills, ...skills], []);  const [latestPost, setLatestPost] = useState<BlogPost | null>(null);
  
  useEffect(() => { const fetchLatestPost = async () => { try { const response = await fetch('https://dev.to/api/articles?username=muskan025&per_page=1'); const data = await response.json(); if (data.length > 0) { setLatestPost({ title: data[0].title, link: data[0].url, pubDate: data[0].published_at, cover_image: data[0].cover_image }); } } catch (error) { console.error('Failed to fetch blog:', error); } }; fetchLatestPost(); }, []);
  

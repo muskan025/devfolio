@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { SectionCard } from "./SectionCard";
+import { learningItems } from "../data/portfolioData";
 
 export function LearningCard() {
   return (
@@ -15,7 +16,7 @@ export function LearningCard() {
           </span>
         </div>
         <div className="flex flex-wrap gap-3">
-          {["AI integration", "AWS EC2", "Docker"].map((item) => (
+          {learningItems.map((item) => (
             <div
               key={item}
               className="group flex items-center gap-2 rounded-full border-2 border-[#1d1d1b] bg-[#fffdf8] px-4 py-2 text-sm font-medium transition-all duration-300 hover:-translate-y-1 hover:bg-[#1d1d1b] hover:text-[#fffdf8]"
