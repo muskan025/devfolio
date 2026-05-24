@@ -6,7 +6,7 @@ import { CARD_CONTAINER, CHIP, MUTED_TEXT } from "../constants/styles";
 export function LearningCard() {
   return (
     <SectionCard className={`self-start relative overflow-hidden ${CARD_CONTAINER} bg-[rgba(255,248,235,0.45)]`}>
-      <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#ffd166]/30 blur-3xl" />
+      <div className="absolute -right-10 -top-20 h-30 w-32 rounded-full bg-[#ffd166]/30 blur-3xl" />
       <div className="relative z-10">
         <div className="mb-3 flex items-center justify-between">
           <h4 className="text-2xl uppercase tracking-wide">

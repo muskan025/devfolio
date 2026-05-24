@@ -67,7 +67,7 @@ function HomePage() {
             <ProjectsCard projects={projects} />
           </div>
 
-          <div className="min-w-0 space-y-6">
+          <div className=" flex flex-col justify-between min-w-0 space-y-6">
             <SkillsCard
               sliderSpeed={sliderSpeed}
               setSliderSpeed={setSliderSpeed}
