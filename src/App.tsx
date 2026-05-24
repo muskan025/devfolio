@@ -43,25 +43,31 @@ function HomePage() {
   const myTime = new Date();
 
   return (
-    <main className="relative min-h-screen overflow-hidden px-6 py-8 text-[#2f2a22]">
+    <main className="relative min-h-screen overflow-x-hidden px-5 py-7 text-[#2f2a22] sm:px-6">
       <div className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('/wild-forest-bg.png')` }} />
       <div className="fixed inset-0 -z-10 bg-black/20" />
       <div className="fixed inset-0 -z-10 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
 
-      <div className="mx-auto max-w-7xl space-y-6">
+      <div className="mx-auto w-full max-w-[1320px] space-y-5">
         <Navbar />
 
-        <section id="about" className="grid grid-cols-1 gap-6 lg:grid-cols-[1.25fr_1fr]">
-          <HeroCard />
-          <IntroCard languages={languages} myTime={myTime} />
+        <section id="about" className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1.35fr)_minmax(360px,1fr)]">
+          <div className="min-w-0">
+            <HeroCard />
+          </div>
+          <div className="min-w-0">
+            <IntroCard languages={languages} myTime={myTime} />
+          </div>
         </section>
 
         <QuoteStrip />
 
-        <section id="projects" className="grid grid-cols-1 gap-6 lg:grid-cols-[0.72fr_1fr]">
-          <ProjectsCard projects={projects} />
+        <section id="projects" className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(360px,0.75fr)_minmax(0,1fr)]">
+          <div className="min-w-0">
+            <ProjectsCard projects={projects} />
+          </div>
 
-          <div className="space-y-6">
+          <div className="min-w-0 space-y-5">
             <SkillsCard
               sliderSpeed={sliderSpeed}
               setSliderSpeed={setSliderSpeed}
@@ -73,9 +79,13 @@ function HomePage() {
           </div>
         </section>
 
-        <section id="contact" className="grid grid-cols-1 gap-6 lg:grid-cols-[0.65fr_1fr]">
-          <ConnectCard socialLinks={socialLinks} />
-          <BlogCard latestPost={latestPost} />
+        <section id="contact" className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(360px,0.65fr)_minmax(0,1fr)]">
+          <div className="min-w-0">
+            <ConnectCard socialLinks={socialLinks} />
+          </div>
+          <div className="min-w-0">
+            <BlogCard latestPost={latestPost} />
+          </div>
         </section>
       </div>
     </main>
