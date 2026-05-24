@@ -48,7 +48,7 @@ function HomePage() {
       <div className="fixed inset-0 -z-10 bg-black/20" />
       <div className="fixed inset-0 -z-10 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
 
-      <div className="mx-auto w-full max-w-7xl space-y-6">
+      <div className="mx-auto w-full max-w-6xl space-y-6">
         <Navbar />
 
         <section id="about" className="grid grid-cols-1 gap-6 lg:grid-cols-[1.35fr_1fr] lg:items-stretch">

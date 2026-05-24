@@ -4,7 +4,7 @@ import { SectionCard } from './SectionCard';
 
 export function HeroCard() {
   return (
-    <SectionCard className="relative overflow-hidden rounded-[2rem] border-2 border-[#1d1d1b] p-6 shadow-[0_12px_35px_rgba(0,0,0,0.18)] min-h-[520px] h-full" style={{ backgroundImage: `url('/welcome-bg.jpeg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <SectionCard className="relative overflow-hidden rounded-[2rem] border-2 border-[#1d1d1b] p-5 shadow-[0_12px_35px_rgba(0,0,0,0.18)] min-h-[220px] lg:min-h-[240px] h-full" style={{ backgroundImage: `url('/welcome-bg.jpeg')`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="absolute inset-0 bg-black/25" />
       <div className="absolute inset-0 bg-gradient-to-br from-black/30 via-black/10 to-transparent" />
       <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-[#ffd166]/20 blur-3xl" />
