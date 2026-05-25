@@ -51,7 +51,8 @@ function HomePage() {
       <div className="mx-auto w-full max-w-6xl space-y-6">
         <Navbar />
 
-        <section id="about" className="grid grid-cols-1 gap-6 lg:grid-cols-[1.35fr_1fr] lg:items-stretch">
+        {/* <section id="about" className="grid grid-cols-1 gap-6 lg:grid-cols-[1.35fr_1fr] lg:items-stretch"> */}
+        <section className="grid grid-cols-1 gap-5 lg:grid-cols-[1.25fr_0.95fr]">
           <div className="min-w-0">
             <HeroCard />
           </div>
