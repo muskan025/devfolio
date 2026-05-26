@@ -46,18 +46,18 @@ export const projects = [
   { title: "Portfolio V2", stack: ["Vite", "React", "API Integrations"] },
 ];
 
-export const skills = [
-  { name: "Node.js", color: "#3b82f6" },
-  { name: "Express", color: "#ef4444" },
-  { name: "MongoDB", color: "#10b981" },
-  { name: "Redis", color: "#f59e0b" },
-  { name: "BullMQ", color: "#f59e0b" },
-  { name: "Docker", color: "#10b981" },
-  { name: "React", color: "#ef4444" },
-  { name: "TypeScript", color: "#f59e0b" },
-  { name: "Tailwind", color: "#8b5cf6" },
-  { name: "Tanstack Query", color: "#3b82f6" },
-];
+// export const skills = [
+//   { name: "Node.js", color: "#3b82f6" },
+//   { name: "Express", color: "#ef4444" },
+//   { name: "MongoDB", color: "#10b981" },
+//   { name: "Redis", color: "#f59e0b" },
+//   { name: "BullMQ", color: "#f59e0b" },
+//   { name: "Docker", color: "#10b981" },
+//   { name: "React", color: "#ef4444" },
+//   { name: "TypeScript", color: "#f59e0b" },
+//   { name: "Tailwind", color: "#8b5cf6" },
+//   { name: "Tanstack Query", color: "#3b82f6" },
+// ];
 
 export const learningItems = ["AI integration", "AWS EC2", "Docker"];
 

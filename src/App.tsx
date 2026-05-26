@@ -13,7 +13,11 @@ import { SkillsCard } from './components/SkillsCard';
 import { LearningCard } from './components/LearningCard';
 import { ConnectCard } from './components/ConnectCard';
 import { BlogCard } from './components/BlogCard';
-import { languages, projects, skills, socialLinks } from './data/portfolioData.js';
+import { languages, projects, socialLinks } from './data/portfolioData.js';
+import {
+  SiReact,
+} from "react-icons/si";
+import { TbCircleLetterB } from "react-icons/tb";
 
 const sliderSpeeds = { slow: 0, medium: 15, fast: 5 } as const;
 
@@ -28,6 +32,15 @@ export enum TabKey {
   Contact = "Socialize",
 }
 
+
+const skills = [
+  { name: "Express", icon: <SiExpress /> },
+  { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
+  { name: "Redis", icon: <SiRedis className="text-[#DC382D]" /> },
+  { name: "BullMQ", icon: <SiRedis className="text-[#E67E22]" /> },
+  { name: "Docker", icon: <SiDocker className="text-[#2496ED]" /> },
+  { name: "React", icon: <SiReact className="text-[#61DAFB]" /> },
+];
 
 function HomePage() {
     

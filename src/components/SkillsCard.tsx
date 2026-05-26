@@ -1,11 +1,98 @@
 // @ts-nocheck
-import { SectionCard } from './SectionCard';
+import { SectionCard } from "./SectionCard";
 
-export function SkillsCard({ sliderSpeed, setSliderSpeed, sliderSpeeds, marqueeSkills, skillLogos }) {
+export function SkillsCard({
+  sliderSpeed = "medium",
+  setSliderSpeed,
+  sliderSpeeds = { slow: 0, medium: 15, fast: 5 },
+  marqueeSkills = [],
+  skillLogos = {},
+}) {
   return (
-               <SectionCard className="min-w-0 rounded-[2rem] border border-[#d8ccb6] bg-[#f4efe2]/95 p-5 text-[#243026] shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-md">
-      <div className="mb-3 flex min-w-0 items-center justify-between"><h3 className="text-sm font-semibold uppercase tracking-[0.22em]">Skills</h3><div className="flex items-center gap-2 overflow-hidden" aria-label="Slider speed controls"><button onClick={() => setSliderSpeed('slow')} className="h-3 w-3 rounded-full border border-[#5f7345] bg-red-500" /><button onClick={() => setSliderSpeed('medium')} className="h-3 w-3 rounded-full border border-[#5f7345] bg-yellow-400" /><button onClick={() => setSliderSpeed('fast')} className="h-3 w-3 rounded-full border border-[#5f7345] bg-green-500" /></div></div>
-      <div className="skills-shell min-w-0 overflow-hidden rounded-2xl border border-[#d5c8b2] bg-[#f9f3e7] p-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.45),0_10px_28px_rgba(0,0,0,0.08)]"><div className="skills-marquee" style={{ ['--skills-duration']: `${sliderSpeeds[sliderSpeed]}s` }}>{marqueeSkills.map((tech, index) => <span key={`${tech.name}-${index}`} className="skill-pill whitespace-nowrap rounded-full border border-[#cabda7] px-4 py-1.5 text-sm font-medium"><span className="inline-flex items-center gap-2 cursor-pointer"><span className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-[#5f7345] bg-[#fff9ef]">{skillLogos[tech.name]}</span>{tech.name}</span></span>)}</div></div>
+    <SectionCard
+      className="
+        relative min-w-0 overflow-hidden rounded-[2rem]
+        border border-[#d8c8a5]/50 bg-[#f1eadc]
+        px-7 py-6
+        shadow-[0_18px_45px_rgba(0,0,0,0.18)]
+      "
+    >
+      {/* speed dots - functionality kept */}
+      <div
+        className="absolute right-7 top-7 flex items-center gap-2"
+        aria-label="Slider speed controls"
+      >
+        <button
+          type="button"
+          onClick={() => setSliderSpeed?.("slow")}
+          className="h-3.5 w-3.5 rounded-full border border-[#5f7345] bg-red-500"
+          aria-label="Slow slider"
+        />
+        <button
+          type="button"
+          onClick={() => setSliderSpeed?.("medium")}
+          className="h-3.5 w-3.5 rounded-full border border-[#5f7345] bg-yellow-400"
+          aria-label="Medium slider"
+        />
+        <button
+          type="button"
+          onClick={() => setSliderSpeed?.("fast")}
+          className="h-3.5 w-3.5 rounded-full border border-[#5f7345] bg-green-500"
+          aria-label="Fast slider"
+        />
+      </div>
+
+      <h3
+        className="
+          mb-5 text-[1rem] font-semibold uppercase
+          tracking-[0.32em] text-[#263126]
+        "
+      >
+        Skills
+      </h3>
+
+      <div
+        className="
+          relative min-w-0 overflow-hidden rounded-[1.35rem]
+          border border-[#d8c8a5]/70 bg-[#fffaf0]/65
+          px-5 py-4
+        "
+      >
+        <div
+          className="skills-marquee flex items-center gap-4"
+          style={{
+            ["--skills-duration"]: `${sliderSpeeds[sliderSpeed]}s`,
+          }}
+        >
+          {marqueeSkills.map((tech, index) => (
+            <span
+              key={`${tech.name}-${index}`}
+              className="
+                flex h-12 min-w-[150px] items-center justify-center gap-3
+                whitespace-nowrap rounded-full border border-[#b9aa8d]/70
+                bg-[#fbf5e8]
+                px-6 text-[1rem] font-semibold text-[#2b2b25]
+                shadow-[0_3px_0_rgba(37,31,22,0.85)]
+                transition-all duration-300
+                hover:-translate-y-0.5 hover:bg-[#fffaf0]
+              "
+            >
+              <span
+                className="
+                  flex h-6 w-6 items-center justify-center rounded-full
+                  border border-[#5f7345]/40 bg-[#fff9ef]
+                "
+              >
+                {skillLogos[tech.name] || tech.icon}
+              </span>
+
+              <span>{tech.name}</span>
+            </span>
+          ))}
+        </div>
+
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-[#fffaf0] to-transparent" />
+      </div>
     </SectionCard>
   );
 }

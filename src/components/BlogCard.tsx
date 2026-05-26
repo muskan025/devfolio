@@ -1,12 +1,51 @@
 // @ts-nocheck
 import { SectionCard } from './SectionCard';
 import { blogPreviewData } from '../data/portfolioData';
-import { BORDERED_PANEL, BUTTON, CARD_CONTAINER, CARD_HEADER, SECTION_TITLE } from '../constants/styles';
+import { BUTTON, CARD_CONTAINER, CARD_HEADER, SECTION_TITLE } from '../constants/styles';
 
 export function BlogCard({ latestPost }) {
   return (
-   <SectionCard className={`${CARD_CONTAINER} h-full bg-[#f4efe2]/95 text-[#243026] border-[#d8ccb6]`}>      <div className={CARD_HEADER}><h3 className={SECTION_TITLE}>Blogs →</h3><a href={blogPreviewData.viewAllUrl} target="_blank" rel="noopener noreferrer" className={BUTTON}>View All<span className="transition-transform duration-300 group-hover:translate-x-1">→</span></a></div>
-      <div className={BORDERED_PANEL}>{latestPost ? <div className="relative h-20 lg:h-24 overflow-hidden rounded-xl border border-[#d6c8b0] bg-cover bg-center" style={{ backgroundImage: `url(${latestPost.cover_image})` }}><div className="absolute inset-0 bg-black/40" /><div className="absolute bottom-0 left-0 z-10 p-3 text-[#fffdf8]"><p className="text-xs font-semibold uppercase tracking-[0.22em] opacity-80">{blogPreviewData.latestPostLabel}</p><a href={latestPost.link} target="_blank" rel="noopener noreferrer" className="mt-1 block text-base font-semibold leading-7 hover:underline">{latestPost.title}</a><p className="mt-1 text-sm font-medium opacity-80">{latestPost.pubDate ? new Date(latestPost.pubDate).toLocaleDateString() : blogPreviewData.fallbackDateText}</p></div></div> : <p className="text-sm leading-7">{blogPreviewData.loadingText}</p>}</div>
+  <SectionCard className={`${CARD_CONTAINER} h-full bg-[#f4efe2]/95 text-[#243026] border-[#d8ccb6]`}>
+      <div className={CARD_HEADER}>
+        <h3 className={SECTION_TITLE}>Blogs →</h3>
+        <a href={blogPreviewData.viewAllUrl} target="_blank" rel="noopener noreferrer" className={BUTTON}>
+          View All
+          <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </a>
+      </div>
+
+      <div className="rounded-2xl border border-[#d5c8b2] bg-[#f9f3e7] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.45),0_10px_28px_rgba(0,0,0,0.08)]">
+        {latestPost ? (
+          <article
+            className="group relative min-h-[9.5rem] overflow-hidden rounded-xl border border-[#d6c8b0] bg-[#1c2335] bg-cover bg-center"
+            style={{ backgroundImage: `url(${latestPost.cover_image})` }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0b1021]/90 via-[#0b1021]/72 to-[#0b1021]/40" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.16),transparent_50%)]" />
+
+            <div className="relative z-10 flex h-full flex-col justify-end p-4 lg:p-5 text-[#fffdf8]">
+              <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-[#f1d28b]">
+                {blogPreviewData.latestPostLabel}
+              </p>
+
+              <a
+                href={latestPost.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 block max-w-3xl text-lg font-semibold leading-snug tracking-[0.01em] text-[#fffcf2] transition-colors duration-300 hover:text-[#f4dca4]"
+              >
+                {latestPost.title}
+              </a>
+
+              <p className="mt-3 text-sm font-medium text-[#efe4c9]/90">
+                {latestPost.pubDate ? new Date(latestPost.pubDate).toLocaleDateString() : blogPreviewData.fallbackDateText}
+              </p>
+            </div>
+          </article>
+        ) : (
+          <p className="text-sm leading-7 text-[#4f5a4f]">{blogPreviewData.loadingText}</p>
+        )}
+      </div>
     </SectionCard>
   );
 }
