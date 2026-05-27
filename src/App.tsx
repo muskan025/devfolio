@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { JSX } from 'react';
-import { FaDev, FaGithub, FaInstagram, FaLinkedin, FaMedium, FaNodeJs } from 'react-icons/fa';
-import { SiDocker, SiExpress, SiMongodb, SiRedis, SiTailwindcss, SiTypescript, SiGmail, SiDailydotdev, SiReactquery } from 'react-icons/si';
+import { FaNodeJs } from 'react-icons/fa';
+import { SiDocker, SiExpress, SiMongodb, SiRedis, SiTailwindcss, SiTypescript, SiReactquery } from 'react-icons/si';
 import { TbBrandReact } from 'react-icons/tb';
 import { ProjectTimeline } from './ProjectTimeline';
 import { Navbar } from './components/navbar';
@@ -13,11 +13,10 @@ import { SkillsCard } from './components/SkillsCard';
 import { LearningCard } from './components/LearningCard';
 import { ConnectCard } from './components/ConnectCard';
 import { BlogCard } from './components/BlogCard';
-import { languages, projects, socialLinks } from './data/portfolioData.js';
+import { languages, projects, socialLinks } from './data/portfolioData';
 import {
   SiReact,
 } from "react-icons/si";
-import { TbCircleLetterB } from "react-icons/tb";
 
 const sliderSpeeds = { slow: 0, medium: 15, fast: 5 } as const;
 
@@ -31,6 +30,11 @@ export enum TabKey {
   Blog = "Knowledge logs",
   Contact = "Socialize",
 }
+
+type Skill = {
+  name: string;
+  icon: JSX.Element;
+};
 
 
 const skills = [

@@ -1,5 +1,20 @@
-// @ts-nocheck
+import type { JSX } from "react";
 import { SectionCard } from "./SectionCard";
+
+type SliderSpeed = "slow" | "medium" | "fast";
+
+type Skill = {
+  name: string;
+  icon: JSX.Element;
+};
+
+type SkillsCardProps = {
+  sliderSpeed?: SliderSpeed;
+  setSliderSpeed?: (speed: SliderSpeed) => void;
+  sliderSpeeds?: Record<SliderSpeed, number>;
+  marqueeSkills?: Skill[];
+  skillLogos?: Record<string, JSX.Element>;
+};
 
 export function SkillsCard({
   sliderSpeed = "medium",
@@ -7,7 +22,7 @@ export function SkillsCard({
   sliderSpeeds = { slow: 0, medium: 15, fast: 5 },
   marqueeSkills = [],
   skillLogos = {},
-}) {
+}: SkillsCardProps) {
   return (
     <SectionCard
       className="
