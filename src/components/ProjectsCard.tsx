@@ -1,8 +1,12 @@
-// @ts-nocheck
 import { FaArrowRight, FaMountain } from "react-icons/fa";
 import { SectionCard } from "./SectionCard";
+import type { Project } from "../data/portfolioData";
 
-export function ProjectsCard({ projects }) {
+type ProjectsCardProps = {
+  projects: Project[];
+};
+
+export function ProjectsCard({ projects }: ProjectsCardProps) {
   return (
     <SectionCard
       className="
@@ -54,9 +58,9 @@ export function ProjectsCard({ projects }) {
         >
           <div>
             {projects.map((project, index) => (
-              <a
+              <p
                 key={project.title}
-                href={project.href || "#"}
+              
                 className="
                   block py-2 text-[0.88rem] font-medium leading-none
                   tracking-[-0.01em] text-[#202018]
@@ -68,7 +72,7 @@ export function ProjectsCard({ projects }) {
                 {index !== projects.length - 1 && (
                   <span className="mt-2 block h-px w-full bg-[#8b8067]/25" />
                 )}
-              </a>
+              </p>
             ))}
           </div>
 

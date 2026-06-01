@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { SectionCard } from "./SectionCard";
 import { learningItems } from "../data/portfolioData";
 import { CARD_CONTAINER, CHIP, MUTED_TEXT } from "../constants/styles";

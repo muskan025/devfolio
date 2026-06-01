@@ -1,4 +1,4 @@
-// @ts-nocheck
+
 import { SectionCard } from './SectionCard';
 
 export function QuoteStrip() {

@@ -1,9 +1,15 @@
-// @ts-nocheck
+
 import { SectionCard } from './SectionCard';
 import { blogPreviewData } from '../data/portfolioData';
 import { BUTTON, CARD_CONTAINER, CARD_HEADER, SECTION_TITLE } from '../constants/styles';
 
-export function BlogCard({ latestPost }) {
+type BlogPost = { title: string; link: string; pubDate?: string; cover_image: string };
+
+type BlogCardProps = {
+  latestPost?: BlogPost | null;
+};
+
+export function BlogCard({latestPost = null}:{latestPost?: BlogPost | null}) {
   return (
   <SectionCard className={`${CARD_CONTAINER} h-full bg-[#f4efe2]/95 text-[#243026] border-[#d8ccb6]`}>
       <div className={CARD_HEADER}>
@@ -18,7 +24,7 @@ export function BlogCard({ latestPost }) {
         {latestPost ? (
           <article
             className="group relative min-h-[9.5rem] overflow-hidden rounded-xl border border-[#d6c8b0] bg-[#1c2335] bg-cover bg-center"
-            style={{ backgroundImage: `url(${latestPost.cover_image})` }}
+            style={{ backgroundImage: latestPost.cover_image ? `url(${latestPost.cover_image})`: undefined }}
           >
             <div className="absolute inset-0 bg-gradient-to-r from-[#0b1021]/90 via-[#0b1021]/72 to-[#0b1021]/40" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.16),transparent_50%)]" />
@@ -29,12 +35,12 @@ export function BlogCard({ latestPost }) {
               </p>
 
               <a
-                href={latestPost.link}
+                href={latestPost.link || blogPreviewData.viewAllUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 block max-w-3xl text-lg font-semibold leading-snug tracking-[0.01em] text-[#fffcf2] transition-colors duration-300 hover:text-[#f4dca4]"
               >
-                {latestPost.title}
+                {latestPost.title || blogPreviewData.latestPostLabel}
               </a>
 
               <p className="mt-3 text-sm font-medium text-[#efe4c9]/90">

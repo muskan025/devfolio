@@ -1,10 +1,32 @@
-export const navLinks = [
+export type NavLink = {
+  label: string;
+  href: string;
+};
+
+export type Language = {
+  name: string;
+  color: string;
+  proficiency: string;
+  flair: string;
+};
+
+export type Project = {
+  title: string;
+  stack: string[];
+};
+
+export type SocialLink = {
+  name: string;
+  href: string;
+};
+
+export const navLinks: NavLink[] = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
 
-export const languages = [
+export const languages: Language[] = [
   {
     name: "English",
     color: "#ef4444",
@@ -37,7 +59,7 @@ export const languages = [
   },
 ];
 
-export const projects = [
+export const projects: Project[] = [
   { title: "AudioTrack Classmate", stack: ["Node.js", "MongoDB", "React"] },
   {
     title: "Language Companion",
@@ -48,7 +70,7 @@ export const projects = [
 
 export const learningItems = ["AI integration", "AWS EC2", "Docker"];
 
-export const socialLinks = [
+export const socialLinks: SocialLink[] = [
   { name: "Email", href: "mailto:muskandodmani222@gmail.com" },
   { name: "GitHub", href: "https://github.com/muskan025" },
   { name: "LinkedIn", href: "https://www.linkedin.com/in/muskan-dodmani/" },

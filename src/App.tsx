@@ -31,12 +31,6 @@ export enum TabKey {
   Contact = "Socialize",
 }
 
-type Skill = {
-  name: string;
-  icon: JSX.Element;
-};
-
-
 const skills = [
   { name: "Express", icon: <SiExpress /> },
   { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },

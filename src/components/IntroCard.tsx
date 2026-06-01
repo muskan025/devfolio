@@ -1,8 +1,15 @@
-// @ts-nocheck
+
 import { SectionCard } from './SectionCard';
 import { BORDERED_PANEL, CARD_CONTAINER, SECTION_TITLE } from '../constants/styles';
+import { Language } from '../data/portfolioData';
 
-export function IntroCard({ languages, myTime }) {
+type IntroCardProps = {
+  languages: Language[];
+  myTime: Date;
+};
+
+
+export function IntroCard({ languages, myTime }: IntroCardProps) {
   return (
     <SectionCard
       as="aside"

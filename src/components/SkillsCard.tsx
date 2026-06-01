@@ -1,4 +1,4 @@
-import type { JSX } from "react";
+import type { CSSProperties,JSX } from "react";
 import { SectionCard } from "./SectionCard";
 
 type SliderSpeed = "slow" | "medium" | "fast";
@@ -76,8 +76,8 @@ export function SkillsCard({
         <div
           className="skills-marquee flex items-center gap-4"
           style={{
-            ["--skills-duration"]: `${sliderSpeeds[sliderSpeed]}s`,
-          }}
+            "--skills-duration": `${sliderSpeeds[sliderSpeed]}s`,
+          } as CSSProperties}
         >
           {marqueeSkills.map((tech, index) => (
             <span
