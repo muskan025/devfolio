@@ -1,7 +1,5 @@
 
-import { useEffect, useState } from 'react';
-import { FaLeaf } from 'react-icons/fa';
-import { LuSun, LuMoon } from 'react-icons/lu';
+ import { FaLeaf } from 'react-icons/fa';
 import { SectionCard } from './SectionCard';
 import { navLinks } from '../data/portfolioData';
 

@@ -5,10 +5,6 @@ import { BUTTON, CARD_CONTAINER, CARD_HEADER, SECTION_TITLE } from '../constants
 
 type BlogPost = { title: string; link: string; pubDate?: string; cover_image: string };
 
-type BlogCardProps = {
-  latestPost?: BlogPost | null;
-};
-
 export function BlogCard({latestPost = null}:{latestPost?: BlogPost | null}) {
   return (
   <SectionCard className={`${CARD_CONTAINER} h-full bg-[#f4efe2]/95 text-[#243026] border-[#d8ccb6]`}>
