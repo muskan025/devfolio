@@ -3,6 +3,7 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Naskh+Arabic:wght@500;600;700&family=Playfair+Display:wght@500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -201,9 +202,11 @@ html {
 }
 
 @layer base {
+  :root,
   .theme {
-    --font-heading: var(--font-sans);
-    --font-sans: 'Geist Variable', sans-serif;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Manrope', 'Geist Variable', system-ui, sans-serif;
+    --font-arabic: 'Noto Naskh Arabic', 'Playfair Display', serif;
   }
   :root {
     --background: oklch(1 0 0);
@@ -282,5 +285,10 @@ html {
   }
   html {
     @apply font-sans;
+  }
+   .font-arabic,
+  [lang='ar'] {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
   }
 }

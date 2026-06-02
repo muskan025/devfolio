@@ -26,7 +26,7 @@ export function HeroCard() {
             </p>
 
             <h1 className="mt-1 whitespace-nowrap font-serif text-[2.85rem] font-semibold leading-[0.95] text-[#fffdf8] drop-shadow-[0_6px_22px_rgba(0,0,0,0.65)] sm:text-[3.45rem] lg:text-[3.8rem]">
-  Nook of مُسکان
+  Nook of <span lang="ar" className="font-arabic font-semibold">مُسکان</span>
 </h1>
 
             <p className="mt-6 text-[1.25rem] font-semibold leading-tight tracking-[0.03em] text-[#f2d7a1] sm:text-[1.35rem]">
