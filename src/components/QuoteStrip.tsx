@@ -18,7 +18,7 @@ export function QuoteStrip() {
         src="/quote-forest.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 right-0 h-full w-[34%] min-w-[190px] object-cover object-right-bottom opacity-80"
+        className="pointer-events-none absolute bottom-0 right-0 h-full w-[40%] min-w-[210px] object-contain object-right-bottom opacity-80"
       />
       <div className="absolute inset-y-0 right-0 w-2/5 bg-gradient-to-r from-[#f4efe2] via-[#f4efe2]/55 to-transparent" />
       <p className="relative z-10 ml-16 max-w-[820px] leading-7 text-[#2f2a22] sm:ml-20">
