@@ -1,3 +1,4 @@
+import { FaSeedling } from "react-icons/fa";
 import { SectionCard } from "./SectionCard";
 import { learningItems } from "../data/portfolioData";
 import { CARD_CONTAINER, CHIP, MUTED_TEXT } from "../constants/styles";
@@ -7,10 +8,17 @@ export function LearningCard() {
     <SectionCard className={`self-start relative overflow-hidden ${CARD_CONTAINER} bg-[#f4efe2]/95 text-[#243026] border-[#d8ccb6]`}>
       <div className="absolute -right-10 -top-20 h-30 w-32 rounded-full bg-[#ffd166]/30 blur-3xl" />
       <div className="relative z-10">
-        <div className="mb-3 flex items-center justify-between">
-          <h4 className="text-sm font-semibold uppercase tracking-[0.22em]">
-            Currently Learning
+        <div className="mb-4 flex flex-wrap items-center gap-3">
+          <span
+            className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#506833]/50 bg-[#2f481f] text-[#d9c37f] shadow-[0_8px_18px_rgba(0,0,0,0.18)]"
+          >
+            <FaSeedling className="text-xs" aria-hidden="true" />
+          </span>
+
+          <h4 className="text-[0.95rem] font-semibold uppercase tracking-[0.24em] text-[#2a352b]">
+            Current Learning
           </h4>
+                    <span className="h-px min-w-10 flex-1 bg-[#d0b36f]/70" />
           <span className={`${CHIP} px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em]`}>
             In Progress
           </span>

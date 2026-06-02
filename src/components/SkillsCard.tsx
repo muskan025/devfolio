@@ -1,3 +1,4 @@
+import { FaCode } from "react-icons/fa";
 import type { CSSProperties,JSX } from "react";
 import { SectionCard } from "./SectionCard";
 
@@ -57,14 +58,23 @@ export function SkillsCard({
         />
       </div>
 
-      <h3
-        className="
-          mb-5 text-[1rem] font-semibold uppercase
-          tracking-[0.32em] text-[#263126]
-        "
-      >
-        Skills
-      </h3>
+     <div className="mb-5 flex items-center gap-3 pr-24">
+        <span
+          className="
+            inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full
+            border border-[#506833]/50 bg-[#2f481f]
+            text-[#d9c37f] shadow-[0_8px_18px_rgba(0,0,0,0.18)]
+          "
+        >
+          <FaCode className="text-xs" aria-hidden="true" />
+        </span>
+
+        <h3 className="text-[0.95rem] font-semibold uppercase tracking-[0.24em] text-[#263126]">
+          Skills
+        </h3>
+
+        <span className="h-px flex-1 bg-[#d0b36f]/70" />
+      </div>
 
       <div
         className="

@@ -1,6 +1,7 @@
 import { FaArrowRight, FaMountain } from "react-icons/fa";
 import { SectionCard } from "./SectionCard";
 import type { Project } from "../data/portfolioData";
+import { CardTitle } from "./CardTitle";
 
 type ProjectsCardProps = {
   projects: Project[];
@@ -27,23 +28,14 @@ export function ProjectsCard({ projects }: ProjectsCardProps) {
 
       <div className="relative z-10 flex h-full flex-col px-5 py-5">
         {/* header */}
-        <div className="mb-4 flex items-center gap-3">
-          <span
-            className="
-              flex h-9 w-9 items-center justify-center rounded-full
-              border border-[#506833]/50 bg-[#2f481f]
-              text-[#d9c37f] shadow-[0_8px_18px_rgba(0,0,0,0.22)]
-            "
-          >
-            <FaMountain className="text-s" />
-          </span>
-
-          <h3 className="text-[0.95rem] font-semibold uppercase tracking-[0.24em] text-[#f5eddc]">
-            Projects
-          </h3>
-
-          <span className="h-px flex-1 bg-[#d0b36f]/40" />
-        </div>
+        <CardTitle
+          className="mb-4"
+          icon={FaMountain}
+          iconWrapperClassName="border-[#506833]/50 bg-[#2f481f] text-[#d9c37f] shadow-[0_8px_18px_rgba(0,0,0,0.22)]"
+          lineClassName="bg-[#d0b36f]/40"
+          title="Projects"
+          titleClassName="text-[#f5eddc]"
+        />
 
          
           {/* project list */}
