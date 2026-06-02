@@ -2,6 +2,7 @@ import { FaBookOpen } from 'react-icons/fa';
 import { SectionCard } from './SectionCard';
 import { blogPreviewData } from '../data/portfolioData';
 import { BUTTON, CARD_CONTAINER} from '../constants/styles';
+import { CardTitle } from './CardTitle';
 
 type BlogPost = { title: string; link: string; pubDate?: string; cover_image: string };
 
@@ -9,20 +10,23 @@ export function BlogCard({latestPost = null}:{latestPost?: BlogPost | null}) {
   return (
   <SectionCard className={`${CARD_CONTAINER} h-full bg-[#f4efe2]/95 text-[#243026] border-[#d8ccb6]`}>
        <div className="mb-4 flex flex-wrap items-center gap-3">
-        <span
-          className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#506833]/50 bg-[#2f481f] text-[#d9c37f] shadow-[0_8px_18px_rgba(0,0,0,0.18)]"
+        <CardTitle
+          className="min-w-0 flex-1"
+          icon={FaBookOpen}
+          iconClassName="text-xs"
+          lineClassName="min-w-8 flex-1 bg-[#d0b36f]/70"
+          title="Blogs"
+        />
+        <a
+          href={blogPreviewData.viewAllUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={BUTTON}
         >
-          <FaBookOpen className="text-xs" aria-hidden="true" />
-        </span>
-
-        <h3 className="text-[0.95rem] font-semibold uppercase tracking-[0.24em] text-[#2a352b]">
-          Blogs
-        </h3>
-
-        <span className="h-px min-w-8 flex-1 bg-[#d0b36f]/70" />
-        <a href={blogPreviewData.viewAllUrl} target="_blank" rel="noopener noreferrer" className={BUTTON}>
           View All
-          <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          <span className="transition-transform duration-300 group-hover:translate-x-1">
+            →
+          </span>
         </a>
       </div>
 
