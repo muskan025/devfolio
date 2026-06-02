@@ -42,19 +42,19 @@ export function SkillsCard({
         <button
           type="button"
           onClick={() => setSliderSpeed?.("slow")}
-          className="h-3.5 w-3.5 rounded-full border border-[#5f7345] bg-red-500"
+          className="h-3.5 w-3.5 rounded-full   bg-red-500"
           aria-label="Slow slider"
         />
         <button
           type="button"
           onClick={() => setSliderSpeed?.("medium")}
-          className="h-3.5 w-3.5 rounded-full border border-[#5f7345] bg-yellow-400"
+          className="h-3.5 w-3.5 rounded-full   bg-yellow-400"
           aria-label="Medium slider"
         />
         <button
           type="button"
           onClick={() => setSliderSpeed?.("fast")}
-          className="h-3.5 w-3.5 rounded-full border border-[#5f7345] bg-green-500"
+          className="h-3.5 w-3.5 rounded-full   bg-green-500"
           aria-label="Fast slider"
         />
       </div>
