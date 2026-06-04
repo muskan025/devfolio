@@ -61,8 +61,6 @@ function HomePage() {
   const marqueeSkills = useMemo(() => [...skills, ...skills], []);  const [latestPost, setLatestPost] = useState<BlogPost | null>(null);
  
  useEffect(() => { const fetchLatestPost = async () => { try { const response = await fetch('https://dev.to/api/articles?username=muskan025&per_page=1'); const data = await response.json(); if (data.length > 0) { setLatestPost({ title: data[0].title, link: data[0].url, pubDate: data[0].published_at, cover_image: data[0].cover_image }); } } catch (error) { console.error('Failed to fetch blog:', error); } }; fetchLatestPost(); }, []);
- 
-  const myTime = new Date();
 
   return (
     <main className="relative min-h-screen overflow-x-hidden px-5 py-7 text-[#2f2a22] sm:px-6">
@@ -79,7 +77,7 @@ function HomePage() {
             <HeroCard />
           </div>
           <div className="min-w-0">
-            <IntroCard languages={languages} myTime={myTime} />
+            <IntroCard languages={languages}/>
           </div>
         </section>
 

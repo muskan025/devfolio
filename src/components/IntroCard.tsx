@@ -75,7 +75,7 @@ const isYourDay = userHour >= 6 && userHour < 18;
   I&apos;m a <span className="text-[#202922]">Software Engineer</span>
 </h2>
         <span className="block h-[2px] w-16 rounded-full bg-[#caa65d]/70"></span>
-        <p className="text-lg leading-8 text-[#3d4a3f]">Explorer, hardworking, and curious.</p>
+        <p className="text-lg leading-8 text-[#3d4a3f]"> Backend-focused MERN Developer</p>
       </div>
 
       <div className="mt-6 rounded-2xl border border-[#d5c8b2] bg-gradient-to-br from-[#f9f3e8] to-[#efe4d0] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.45),0_10px_24px_rgba(0,0,0,0.08)]">
@@ -99,7 +99,7 @@ const isYourDay = userHour >= 6 && userHour < 18;
               </span>
               <span className="pointer-events-none absolute left-1/2 top-full z-[9999] mt-2 w-max max-w-48 -translate-x-1/2 scale-95 rounded-xl border border-[#3f4b3d] bg-[#1c2820] px-2.5 py-1.5 text-[10px] text-[#fff9ef] opacity-0 shadow-[0_14px_32px_rgba(0,0,0,0.24)] transition-all duration-200 group-hover:scale-100 group-hover:opacity-100">
                 <span className="block font-semibold text-[#ffd166]">{language.proficiency}</span>
-                <span className="mt-1 block leading-relaxed">{language.flair}</span>
+                <span className="mt-1 block leading-relaxed text-wrap">{language.flair}</span>
                 <span className="absolute -top-1.5 left-1/2 h-2.5 w-2.5 -translate-x-1/2 rotate-45 border-l-2 border-t-2 border-[#1d1d1b] bg-[#1d1d1b]" />
               </span>
             </span>
@@ -107,39 +107,6 @@ const isYourDay = userHour >= 6 && userHour < 18;
         </div>
       </div>
 
-      {/* <div className="mt-6 grid gap-3 sm:grid-cols-2">
-        <div className={`${BORDERED_PANEL} px-3 py-3 text-center`}>
-          <div className="flex items-center justify-center gap-3 text-center">
-            <img
-             src={isDay ? '/sun.png' : '/moon.png'}
-      alt={isDay ? 'sun icon' : 'moon icon'}
-            className="h-12 w-12.1 rounded-sm object-contain"
-          />
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em]">My Time</p>
-          <p className="mt-1 text-base font-bold leading-7">
-            {myTime}
-          </p>
-          </div>
-          </div>
-          
-        </div>
-        <div className={`${BORDERED_PANEL} px-4 py-3 text-center`}>
-          <div className="flex items-center justify-center gap-3 text-center">
-            <img
-             src={isDay ? '/sun.png' : '/moon.png'}
-      alt={isDay ? 'sun icon' : 'moon icon'}
-            className="h-12 w-12.1 rounded-sm object-contain"
-          />
-          <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em]">Your Time</p>
-          <p className="mt-1 text-base font-bold leading-7">
-            {yourTime}
-          </p>
-          </div>
-          </div>
-        </div>
-      </div> */}
    <div className="mt-6 grid gap-3 sm:grid-cols-2">
   <div className={`${BORDERED_PANEL} relative min-h-[82px] px-3 py-3`}>
     <img

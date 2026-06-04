@@ -31,44 +31,44 @@ export const languages: Language[] = [
     name: "English",
     color: "#ef4444",
     proficiency: "Fluent",
-    flair: "Nuanced professional communication",
+    flair: "Comfortable with work communication",
   },
   {
     name: "Hindi",
     color: "#10b981",
     proficiency: "Fluent",
-    flair: "Native-level comfort in conversation",
+    flair: "Comfortable in everyday conversations",
   },
   {
     name: "Urdu",
     color: "#f59e0b",
     proficiency: "Fluent",
-    flair: "Expressive and culturally rich tone",
+    flair: "Comfortable in casual conversations",
   },
   {
     name: "Konkani",
     color: "#8b5cf6",
     proficiency: "Fluent",
-    flair: "Warm day-to-day communication",
+    flair: "Comfortable in local conversations",
   },
   {
     name: "Arabic",
     color: "#3b82f6",
     proficiency: "Beginner",
-    flair: "Actively learning with consistency",
+    flair: "Learning gradually",
   },
 ];
 
 export const projects: Project[] = [
-  { title: "AudioTrack Classmate", stack: ["Node.js", "MongoDB", "React"] },
+  { title: "BIZNest SaaS Platform ", stack: ["Amazon S3", "Node.js Streams", "Redis", "BullMQ", "Event Emitters"] },
   {
-    title: "Language Companion",
-    stack: ["TypeScript", "Tailwind", "Framer Motion"],
+    title: "Nomad Platform",
+    stack: ["Google Sheets API", "Amazon S3", "Node.js Streams"],
   },
-  { title: "Portfolio V2", stack: ["Vite", "React", "API Integrations"] },
+  { title: "Nomad Admin & Host Portal", stack: ["TypeScript", "Amazon S3", "Node.js Streams" ] },
 ];
 
-export const learningItems = ["AI integration", "AWS EC2", "Docker"];
+export const learningItems = ["AI integration", "Docker"];
 
 export const socialLinks: SocialLink[] = [
   { name: "Email", href: "mailto:muskandodmani222@gmail.com" },
