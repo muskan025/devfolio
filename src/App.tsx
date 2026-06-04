@@ -32,6 +32,7 @@ export enum TabKey {
 }
 
 const skills = [
+
   { name: "Express", icon: <SiExpress /> },
   { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
   { name: "Redis", icon: <SiRedis className="text-[#DC382D]" /> },
@@ -43,7 +44,17 @@ const skills = [
 function HomePage() {
     
   const skillLogos: Record<string, JSX.Element> = {
-    'Node.js': <FaNodeJs className="h-4 w-4 text-[#3c873a]" aria-hidden="true" />, Express: <SiExpress className="h-4 w-4 text-[#111111]" aria-hidden="true" />, MongoDB: <SiMongodb className="h-4 w-4 text-[#10aa50]" aria-hidden="true" />, Redis: <SiRedis className="h-4 w-4 text-[#dc382d]" aria-hidden="true" />, BullMQ: <SiRedis className="h-4 w-4 text-[#d97706]" aria-hidden="true" />, Docker: <SiDocker className="h-4 w-4 text-[#2496ed]" aria-hidden="true" />, React: <TbBrandReact className="h-4 w-4 text-[#61dafb]" aria-hidden="true" />, TypeScript: <SiTypescript className="h-4 w-4 text-[#3178c6]" aria-hidden="true" />, Tailwind: <SiTailwindcss className="h-4 w-4 text-[#06b6d4]" aria-hidden="true" />, 'Tanstack Query': <SiReactquery className="h-4 w-4 text-[#ff4154]" aria-hidden="true" />,
+    'Node.js': <FaNodeJs className="h-4 w-4 text-[#3c873a]" aria-hidden="true" />, 
+    Express: <SiExpress className="h-4 w-4 text-[#111111]" aria-hidden="true" />, 
+    MongoDB: <SiMongodb className="h-4 w-4 text-[#10aa50]" aria-hidden="true" />, 
+    Redis: <SiRedis className="h-4 w-4 text-[#dc382d]" aria-hidden="true" />, 
+    BullMQ: <SiRedis className="h-4 w-4 text-[#d97706]" aria-hidden="true" />, 
+    Docker: <SiDocker className="h-4 w-4 text-[#2496ed]" aria-hidden="true" />, 
+    React: <TbBrandReact className="h-4 w-4 text-[#61dafb]" aria-hidden="true" />, 
+    TypeScript: <SiTypescript className="h-4 w-4 text-[#3178c6]" aria-hidden="true" />, 
+    Tailwind: <SiTailwindcss className="h-4 w-4 text-[#06b6d4]" aria-hidden="true" />, 
+    'Tanstack Query': <SiReactquery className="h-4 w-4 text-[#ff4154]" aria-hidden="true" />,
+    
   };
 
    const [sliderSpeed, setSliderSpeed] = useState<SliderSpeed>('medium');
