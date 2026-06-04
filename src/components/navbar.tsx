@@ -34,7 +34,12 @@ export function Navbar() {
           href="#home"
           className="flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em]"
         >
-          <FaLeaf className="text-[13px] text-[#b9d77a]" />
+          {/* <FaLeaf className="text-[13px] text-[#b9d77a]" /> */}
+           <img
+            src="/favicon.png"
+            alt="Muskan.dev logo"
+            className="h-12 w-12.1 rounded-sm object-contain"
+          />
           <span>Muskan.dev</span>
         </a>
 
