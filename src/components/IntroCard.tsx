@@ -2,14 +2,48 @@
 import { SectionCard } from './SectionCard';
 import { BORDERED_PANEL, CARD_CONTAINER, SECTION_TITLE } from '../constants/styles';
 import { Language } from '../data/portfolioData';
+import { useEffect, useState } from 'react';
 
 type IntroCardProps = {
   languages: Language[];
-  myTime: Date;
+  
 };
 
+export function IntroCard({ languages }: IntroCardProps) {
+  const [currentTime, setCurrentTime] = useState(() => new Date());
+ 
+useEffect(() => {
+  const timer = setInterval(() => {
+    setCurrentTime(new Date());
+  }, 1000);
 
-export function IntroCard({ languages, myTime }: IntroCardProps) {
+  return () => clearInterval(timer);
+}, []);
+
+const myTime = currentTime.toLocaleTimeString('en-IN', {
+  timeZone: 'Asia/Kolkata',
+  hour: '2-digit',
+  minute: '2-digit',
+});
+
+const yourTime = currentTime.toLocaleTimeString([], {
+  hour: '2-digit',
+  minute: '2-digit',
+});
+
+const indiaHour = Number(
+  currentTime.toLocaleTimeString('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    hour: '2-digit',
+    hour12: false,
+  })
+);
+
+const userHour = currentTime.getHours();
+
+const isMyDay = indiaHour >= 6 && indiaHour < 18;
+const isYourDay = userHour >= 6 && userHour < 18;
+
   return (
     <SectionCard
       as="aside"
@@ -24,10 +58,16 @@ export function IntroCard({ languages, myTime }: IntroCardProps) {
           Available To Work
         </span>
 
-        <button className="group inline-flex items-center gap-2 rounded-xl border border-[#91a579] bg-gradient-to-b from-[#f7f2e8] to-[#eee4d1] px-4 py-2 text-sm font-semibold text-[#253027] shadow-[inset_0_1px_0_rgba(255,255,255,0.72),0_8px_16px_rgba(28,38,30,0.08)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#708657] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_12px_20px_rgba(28,38,30,0.14)]">
-          Resume
-          <span className="transition-transform duration-200 group-hover:translate-y-0.5">↓</span>
-        </button>
+        <a
+  href="/resume.pdf"
+  download="Muskan-Dodmani-Resume.pdf"
+  className="group inline-flex items-center gap-2 rounded-xl border border-[#91a579] bg-gradient-to-b from-[#f7f2e8] to-[#eee4d1] px-4 py-2 text-sm font-semibold text-[#253027] shadow-[inset_0_1px_0_rgba(255,255,255,0.72),0_8px_16px_rgba(28,38,30,0.08)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#708657] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_12px_20px_rgba(28,38,30,0.14)]"
+>
+  Resume
+  <span className="transition-transform duration-200 group-hover:translate-y-0.5">
+    ↓
+  </span>
+</a>
       </div>
 
       <div className="mt-6 space-y-3">
@@ -67,24 +107,74 @@ export function IntroCard({ languages, myTime }: IntroCardProps) {
         </div>
       </div>
 
-      <div className="mt-6 grid gap-3 sm:grid-cols-2">
-        <div className={`${BORDERED_PANEL} px-4 py-3 text-center`}>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em]">My Time</p>
-          <p className="mt-1 text-base font-medium leading-7">
-            {myTime.toLocaleTimeString('en-IN', {
-              timeZone: 'Asia/Kolkata',
-              hour: '2-digit',
-              minute: '2-digit',
-            })}
+      {/* <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        <div className={`${BORDERED_PANEL} px-3 py-3 text-center`}>
+          <div className="flex items-center justify-center gap-3 text-center">
+            <img
+             src={isDay ? '/sun.png' : '/moon.png'}
+      alt={isDay ? 'sun icon' : 'moon icon'}
+            className="h-12 w-12.1 rounded-sm object-contain"
+          />
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.22em]">My Time</p>
+          <p className="mt-1 text-base font-bold leading-7">
+            {myTime}
           </p>
+          </div>
+          </div>
+          
         </div>
         <div className={`${BORDERED_PANEL} px-4 py-3 text-center`}>
+          <div className="flex items-center justify-center gap-3 text-center">
+            <img
+             src={isDay ? '/sun.png' : '/moon.png'}
+      alt={isDay ? 'sun icon' : 'moon icon'}
+            className="h-12 w-12.1 rounded-sm object-contain"
+          />
+          <div>
           <p className="text-xs font-semibold uppercase tracking-[0.22em]">Your Time</p>
-          <p className="mt-1 text-base font-medium leading-7">
-            {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+          <p className="mt-1 text-base font-bold leading-7">
+            {yourTime}
           </p>
+          </div>
+          </div>
         </div>
-      </div>
+      </div> */}
+   <div className="mt-6 grid gap-3 sm:grid-cols-2">
+  <div className={`${BORDERED_PANEL} relative min-h-[82px] px-3 py-3`}>
+    <img
+      src={isMyDay ? '/sun.png' : '/moon.png'}
+      alt={isMyDay ? 'sun icon' : 'moon icon'}
+      className="absolute left-5 top-1/2 h-14 w-14 -translate-y-1/2 rounded-sm object-contain"
+    />
+
+    <div className="flex h-full flex-col items-center justify-center text-center">
+      <p className="text-xs font-semibold uppercase tracking-[0.22em]">
+        My Time
+      </p>
+      <p className="mt-1 text-base font-bold leading-7">
+        {myTime}
+      </p>
+    </div>
+  </div>
+
+  <div className={`${BORDERED_PANEL} relative min-h-[82px] px-3 py-3`}>
+    <img
+      src={isYourDay ? '/sun.png' : '/moon.png'}
+      alt={isYourDay ? 'sun icon' : 'moon icon'}
+      className="absolute left-5 top-1/2 h-14 w-14 -translate-y-1/2 rounded-sm object-contain"
+    />
+
+    <div className="flex h-full flex-col items-center justify-center text-center">
+      <p className="text-xs font-semibold uppercase tracking-[0.22em]">
+        Your Time
+      </p>
+      <p className="mt-1 text-base font-bold leading-7">
+        {yourTime}
+      </p>
+    </div>
+  </div>
+</div>
     </SectionCard>
   );
 }
