@@ -6,8 +6,10 @@ export function HeroCard() {
     <SectionCard className="h-full overflow-hidden rounded-[1.7rem] border border-[#d9c37f]/30 bg-[#0d1a12]/80 p-0 shadow-[0_20px_60px_rgba(0,0,0,0.25)] backdrop-blur-md">
       <div className="relative h-full min-h-[330px] overflow-hidden rounded-[1.7rem] lg:min-h-[400px]">
         <img
-          src="/welcome-bg.jpeg"
+          src="/welcome-bg.webp"
           alt="Cliffside forest landscape at sunset"
+          loading="eager"
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
 

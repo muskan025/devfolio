@@ -15,12 +15,20 @@ export function ProjectsCard({ projects }: ProjectsCardProps) {
         border border-[#d9c37f]/35 p-0
         shadow-[0_18px_50px_rgba(0,0,0,0.28)]
       "
-      style={{
-        backgroundImage: `url('/forest-river.png')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      // style={{
+      //   backgroundImage: `url('/forest-river.webp')`,
+      //   backgroundSize: "cover",
+      //   backgroundPosition: "center",
+      // }}
     >
+      <div className="absolute inset-0">
+  <img
+    src="/forest-river.webp"
+    alt=""
+    loading="lazy"
+     className="h-full w-full object-cover"
+  />
+</div>
       {/* overlays */}
       <div className="absolute inset-0 bg-[#07120d]/25" />
       <div className="absolute inset-0 bg-gradient-to-br from-[#07120d]/35 via-transparent to-[#d6b66c]/15" />

@@ -52,7 +52,7 @@ export const ProjectTimeline = () => {
             alt="Muskan.dev logo"
             className="h-12 w-12.1 rounded-sm object-contain"
           />
-              <span>Muskan.dev • Journey</span>
+              <span>Muskan.dev</span>
             </a>
 
             <a

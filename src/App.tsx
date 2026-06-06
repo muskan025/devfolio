@@ -64,7 +64,7 @@ function HomePage() {
 
   return (
     <main className="relative min-h-screen overflow-x-hidden px-5 py-7 text-[#2f2a22] sm:px-6">
-      <div className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('/wild-forest-bg.png')` }} />
+      <div className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('/wild-forest-bg.webp')` }} />
     <div className="fixed inset-0 -z-10 bg-[#07120d]/70" />
       <div className="fixed inset-0 -z-10 bg-gradient-to-b from-[#030906]/65 via-[#07120d]/35 to-[#020704]/75" />
 
