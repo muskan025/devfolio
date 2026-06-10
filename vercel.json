@@ -1,4 +1,6 @@
+
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
       "source": "/(.*)\\.(webp|png|jpg|jpeg|svg|gif|ico)",
@@ -8,6 +10,19 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/timeline",
+      "destination": "/#journey",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!.*\\.).*)",
+      "destination": "/index.html"
     }
   ]
 }
