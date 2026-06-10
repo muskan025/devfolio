@@ -12,13 +12,6 @@
       ]
     }
   ],
-  "redirects": [
-    {
-      "source": "/timeline",
-      "destination": "/#journey",
-      "permanent": false
-    }
-  ],
   "rewrites": [
     {
       "source": "/((?!.*\\.).*)",

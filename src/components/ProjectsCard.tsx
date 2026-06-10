@@ -1,13 +1,31 @@
+import { MouseEvent } from "react";
 import { FaArrowRight, FaMountain } from "react-icons/fa";
 import { SectionCard } from "./SectionCard";
 import type { Project } from "../data/portfolioData";
 import { CardTitle } from "./CardTitle";
+import { navigateToPath } from "../utils/navigation";
 
 type ProjectsCardProps = {
   projects: Project[];
 };
 
 export function ProjectsCard({ projects }: ProjectsCardProps) {
+   const handleTimelineClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.altKey ||
+      event.ctrlKey ||
+      event.shiftKey
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    navigateToPath('/timeline');
+  };
+
   return (
     <SectionCard
       className="
@@ -73,6 +91,7 @@ export function ProjectsCard({ projects }: ProjectsCardProps) {
 
           <a
             href="/timeline"
+              onClick={handleTimelineClick}
             aria-label="Open project timeline page"
             className="
               absolute -bottom-4 -right-3 flex h-10 w-10 items-center justify-center
