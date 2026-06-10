@@ -1,5 +1,4 @@
 
- import { FaLeaf } from 'react-icons/fa';
 import { SectionCard } from './SectionCard';
 import { navLinks } from '../data/portfolioData';
 
