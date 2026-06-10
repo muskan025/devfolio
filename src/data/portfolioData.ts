@@ -60,9 +60,9 @@ export const languages: Language[] = [
 ];
 
 export const projects: Project[] = [
-  { title: "BIZNest SaaS Platform ", stack: ["Amazon S3", "Node.js Streams", "Redis", "BullMQ", "Event Emitters"] },
+  { title: "BIZ Nest Operations Suite", stack: ["Amazon S3", "Node.js Streams", "Redis", "BullMQ", "Event Emitters"] },
   {
-    title: "Nomad Platform",
+    title: "Nomad Spaces",
     stack: ["Google Sheets API", "Amazon S3", "Node.js Streams"],
   },
   { title: "Nomad Admin & Host Portal", stack: ["TypeScript", "Amazon S3", "Node.js Streams" ] },

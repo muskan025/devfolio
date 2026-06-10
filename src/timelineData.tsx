@@ -119,7 +119,7 @@ const projectTracks = [
   {
     date: "2024–2026",
     roleLabel: "Software Engineer Intern → Associate Software Engineer",
-    project: "BizNest Operations Suite",
+    project: "BIZ Nest Operations Suite",
     context: "Internal multi-tenant company management platform",
     description:
       "Worked across company operations modules while transitioning from internship responsibilities to associate-level backend ownership.",

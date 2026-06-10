@@ -15,11 +15,6 @@ export function ProjectsCard({ projects }: ProjectsCardProps) {
         border border-[#d9c37f]/35 p-0
         shadow-[0_18px_50px_rgba(0,0,0,0.28)]
       "
-      // style={{
-      //   backgroundImage: `url('/forest-river.webp')`,
-      //   backgroundSize: "cover",
-      //   backgroundPosition: "center",
-      // }}
     >
       <div className="absolute inset-0">
   <img
