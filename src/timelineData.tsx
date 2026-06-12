@@ -9,11 +9,14 @@ const projectTracks = [
     project: "BIZ Nest Operations Suite",
     context: "Internal company management platform",
     description:
-      "Worked across company operations modules while transitioning from internship responsibilities to associate-level backend ownership.",
+      "Worked across the core SaaS platform while transitioning from intern to sole backend owner. Two systems I built here went beyond standard CRUD — they required thinking about async behavior, decoupling, and failure handling.",
     bullets: [
-      "Built modules for task management, ticket workflows, attendance tracking, meetings, leave management, and more.",
-      "Built an async audit log system using Node.js EventEmitters to capture and persist user actions for audit traceability.",
-      "Built a report generation module using Redis as a message broker and BullMQ for background job processing, enabling report generation, cancellation, retry handling, and more reliable async workflows."
+      // "Built modules for task management, ticket workflows, attendance tracking, meetings, leave management, and more.",
+      // "Built an async audit log system using Node.js EventEmitters to capture and persist user actions for audit traceability.",
+      // "Built a report generation module using Redis as a message broker and BullMQ for background job processing, enabling report generation, cancellation, retry handling, and more reliable async workflows."
+      "Moved report generation off the main thread into a BullMQ + Redis job queue — API responds instantly with a job ID, worker processes in background, client polls for status. Added cancellation and retry so failed or abandoned jobs don't silently disappear.",
+      "Decoupled audit logging from controllers using Node.js EventEmitters — core handlers emit events, listeners persist them separately. 500+ daily events logged with no added latency to requests.",
+      
     ],
     tech: ["Node.js", "Streams", "Express", "MongoDB", "EventEmitters", "Redis", "BullMQ"],
   },
@@ -23,11 +26,10 @@ const projectTracks = [
     project: "Nomad Spaces",
     context: "Traveler workspace and hospitality discovery platform",
     description:
-      "Contributed to backend systems for connecting travelers with coworking spaces, coliving spaces, meeting rooms, and cafes.",
+      "Built backend APIs for a platform connecting travelers with coworking and coliving spaces. Most of the work here was around data validation, structured schemas, and a signup flow that needed a non-technical team in the middle of it.",
     bullets: [
-      "Designed a multi-step host signup flow with temporary Google Sheets verification before secure database commit.",
-      "Built backend APIs for likes, user profiles, reviews, and host data with structured MongoDB schemas.",
-      "Added Yup validation and error-resilient endpoint handling for dev-team requirements.",
+      "Built a two-phase host onboarding flow — form data goes to Google Sheets first for sales team review, then commits to MongoDB after approval. Yup validation at both stages.",
+"Developed profile, likes, and reviews APIs with structured MongoDB schemas, keeping response shapes stable for frontend integration."
     ],
     tech: ["Node.js", "Express", "MongoDB", "Yup", "Google Sheets API"],
   },
@@ -37,10 +39,11 @@ const projectTracks = [
     project: "Nomad Admin & Host Portal",
     context: "Admin and host-facing management system for the Nomad ecosystem",
     description:
-      "Built backend tools for admin operations, host management, file uploads, and bulk data handling.",
+      "Backend tooling for admin operations and host management. The two problems worth noting here were about scale and developer experience — one around memory, one around making errors actually useful.",
     bullets: [
-      "Built bulk CSV upload controllers using Node.js streams for large-scale data ingestion of around 1K records per batch.",
-      "Implemented image upload and management flows integrated with AWS S3.",
+      "Replaced in-memory CSV loading with Node.js Streams — memory stays flat at any file size, and row-level isolation means one bad record doesn't kill the batch.",
+"Failed rows return with specific skip reasons, successful inserts with record-level confirmation. Debugging a malformed upload went from a back-and-forth conversation to a self-explanatory response.",
+"Built AWS S3 image upload with file type validation and structured key naming so files stay retrievable as the app scales across multiple upload sources."
     ],
     tech: ["Node.js", "MongoDB", "Streams", "AWS S3", "Error Handling"],
   },

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { JSX } from 'react';
 import { FaNodeJs } from 'react-icons/fa';
-import { SiDocker, SiExpress, SiMongodb, SiRedis, SiTailwindcss, SiTypescript, SiReactquery } from 'react-icons/si';
+import { SiDocker, SiExpress, SiMongodb, SiRedis, SiTailwindcss, SiTypescript, SiReactquery, SiNodedotjs } from 'react-icons/si';
 import { TbBrandReact } from 'react-icons/tb';
 import { ProjectTimeline } from './ProjectTimeline';
 import { Navbar } from './components/navbar';
@@ -33,12 +33,13 @@ export enum TabKey {
 
 const skills = [
 
+  { name: "Nodejs", icon: <SiNodedotjs /> },
   { name: "Express", icon: <SiExpress /> },
   { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
   { name: "Redis", icon: <SiRedis className="text-[#DC382D]" /> },
   { name: "BullMQ", icon: <SiRedis className="text-[#E67E22]" /> },
-  { name: "Docker", icon: <SiDocker className="text-[#2496ED]" /> },
   { name: "React", icon: <SiReact className="text-[#61DAFB]" /> },
+  { name: "Docker", icon: <SiDocker className="text-[#2496ED]" /> },
 ];
 
 function HomePage() {
