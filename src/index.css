@@ -146,19 +146,19 @@ html {
   animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
-@keyframes skills-marquee {
+/* @keyframes skills-marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
-}
+} */
 
 .skills-marquee {
-  --skills-duration: 16s;
+  /* --skills-duration: 16s;
   display: flex;
    max-width: 100%;
-  width: fit-content;
+  width: fit-content; */
   min-width: 100%;
-  gap: 0.75rem;
-  animation: skills-marquee var(--skills-duration) linear infinite;
+  /* gap: 0.75rem;
+  animation: skills-marquee var(--skills-duration) linear infinite; */
 }
 
 .skills-shell {

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { JSX } from 'react';
-import { FaNodeJs } from 'react-icons/fa';
-import { SiDocker, SiExpress, SiMongodb, SiRedis, SiTailwindcss, SiTypescript, SiReactquery, SiNodedotjs } from 'react-icons/si';
+import { FaAws, FaCode, FaLock, FaNodeJs } from 'react-icons/fa';
+import { SiDocker, SiExpress, SiMongodb, SiRedis, SiTailwindcss, SiTypescript, SiReactquery, SiNodedotjs, SiRedux, SiGithub, SiPostman } from 'react-icons/si';
 import { TbBrandReact } from 'react-icons/tb';
 import { ProjectTimeline } from './ProjectTimeline';
 import { Navbar } from './components/navbar';
@@ -19,9 +19,7 @@ import {
 } from "react-icons/si";
 import { DiAws } from 'react-icons/di';
 
-const sliderSpeeds = { slow: 0, medium: 15, fast: 5 } as const;
-
-type SliderSpeed = keyof typeof sliderSpeeds;
+type SliderSpeed = "slow" | "medium" | "fast";
 
 type BlogPost = { title: string; link: string; pubDate?: string; cover_image: string };
 
@@ -32,16 +30,36 @@ export enum TabKey {
   Contact = "Socialize",
 }
 
-const skills = [
+// const skills = [
 
-  { name: "Nodejs", icon: <SiNodedotjs /> },
-  { name: "Express", icon: <SiExpress /> },
+//   { name: "Nodejs", icon: <SiNodedotjs /> },
+//   { name: "Express", icon: <SiExpress /> },
+//   { name: "TypeScript", icon: <SiTypescript /> },
+//   { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
+//   { name: "Redis", icon: <SiRedis className="text-[#DC382D]" /> },
+//   { name: "BullMQ", icon: <SiRedis className="text-[#E67E22]" /> },
+//   { name: "React", icon: <SiReact className="text-[#61DAFB]" /> },
+//   { name: "Redux", icon: <SiRedux className="text-[#61DAFB]" /> },
+//   { name: "AWS S3", icon: <DiAws className="text-[#61DAFB]" /> },
+//  ];
+
+const skills = [
+  { name: "Node.js", icon: <SiNodedotjs /> },
+  { name: "Express.js", icon: <SiExpress /> },
+  { name: "TypeScript", icon: <SiTypescript /> },
   { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
+  { name: "Mongoose", icon: <SiMongodb className="text-[#47A248]" /> },
+  { name: "REST APIs", icon: <FaCode /> },
+  { name: "JWT Auth", icon: <FaLock /> },
   { name: "Redis", icon: <SiRedis className="text-[#DC382D]" /> },
   { name: "BullMQ", icon: <SiRedis className="text-[#E67E22]" /> },
+  // { name: "Docker", icon: <SiDocker /> },
+  { name: "AWS S3", icon: <DiAws /> },
   { name: "React", icon: <SiReact className="text-[#61DAFB]" /> },
-  { name: "AWS S3", icon: <DiAws className="text-[#61DAFB]" /> },
-  { name: "Docker", icon: <SiDocker className="text-[#2496ED]" /> },
+  { name: "Redux", icon: <SiRedux className="text-[#764ABC]" /> },
+  { name: "Tailwind", icon: <SiTailwindcss /> },
+  { name: "GitHub", icon: <SiGithub /> },
+  { name: "Postman", icon: <SiPostman /> },
 ];
 
 function HomePage() {
@@ -60,8 +78,8 @@ function HomePage() {
     
   };
 
-   const [sliderSpeed, setSliderSpeed] = useState<SliderSpeed>('medium');
-  const marqueeSkills = useMemo(() => [...skills, ...skills], []);  const [latestPost, setLatestPost] = useState<BlogPost | null>(null);
+  const [sliderSpeed, setSliderSpeed] = useState<SliderSpeed>('fast');
+  const marqueeSkills = useMemo(() => skills, []);  const [latestPost, setLatestPost] = useState<BlogPost | null>(null);
  
  useEffect(() => { const fetchLatestPost = async () => { try { const response = await fetch('https://dev.to/api/articles?username=muskan025&per_page=1'); const data = await response.json(); if (data.length > 0) { setLatestPost({ title: data[0].title, link: data[0].url, pubDate: data[0].published_at, cover_image: data[0].cover_image }); } } catch (error) { console.error('Failed to fetch blog:', error); } }; fetchLatestPost(); }, []);
 
@@ -95,7 +113,6 @@ function HomePage() {
             <SkillsCard
               sliderSpeed={sliderSpeed}
               setSliderSpeed={setSliderSpeed}
-              sliderSpeeds={sliderSpeeds}
               marqueeSkills={marqueeSkills}
               skillLogos={skillLogos}
             />
