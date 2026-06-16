@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { JSX } from 'react';
-import { FaAws, FaCode, FaLock, FaNodeJs } from 'react-icons/fa';
+import { FaCode, FaLock, FaNodeJs } from 'react-icons/fa';
 import { SiDocker, SiExpress, SiMongodb, SiRedis, SiTailwindcss, SiTypescript, SiReactquery, SiNodedotjs, SiRedux, SiGithub, SiPostman } from 'react-icons/si';
 import { TbBrandReact } from 'react-icons/tb';
 import { ProjectTimeline } from './ProjectTimeline';

@@ -107,7 +107,7 @@ export function ProjectsCard({ projects }: ProjectsCardProps) {
         {/* footer */}
 <div
   className="
-    mt-auto flex w-[250px] items-start gap-2 rounded-[1rem]
+    mt-auto flex w-[300px] items-start gap-2 rounded-[1rem]
     bg-black/40 p-2 text-[#f6edd4]
   "
 >          <span className="mt-1 text-2xl leading-none text-[#d0b36f]">❧</span>
