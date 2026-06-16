@@ -9,7 +9,7 @@ const projectTracks = [
     project: "BIZ Nest Operations Suite",
     context: "Internal company management platform",
     description:
-      "Worked across the core SaaS platform while transitioning from intern to sole backend owner. Two systems I built here went beyond standard CRUD — they required thinking about async behavior, decoupling, and failure handling.",
+      "Worked across the core SaaS platform while transitioning from intern to backend owner. Two systems I built here went beyond standard CRUD — they required thinking about async behavior, decoupling, and failure handling.",
     bullets: [
       // "Built modules for task management, ticket workflows, attendance tracking, meetings, leave management, and more.",
       // "Built an async audit log system using Node.js EventEmitters to capture and persist user actions for audit traceability.",

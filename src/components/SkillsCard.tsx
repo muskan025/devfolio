@@ -21,7 +21,7 @@ type SkillsCardProps = {
 export function SkillsCard({
   sliderSpeed = "medium",
   setSliderSpeed,
-  sliderSpeeds = { slow: 0, medium: 15, fast: 5 },
+  sliderSpeeds = { slow: 0, medium: 15, fast: 20 },
   marqueeSkills = [],
   skillLogos = {},
 }: SkillsCardProps) {

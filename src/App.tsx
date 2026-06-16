@@ -17,6 +17,7 @@ import { languages, projects, socialLinks } from './data/portfolioData';
 import {
   SiReact,
 } from "react-icons/si";
+import { DiAws } from 'react-icons/di';
 
 const sliderSpeeds = { slow: 0, medium: 15, fast: 5 } as const;
 
@@ -39,6 +40,7 @@ const skills = [
   { name: "Redis", icon: <SiRedis className="text-[#DC382D]" /> },
   { name: "BullMQ", icon: <SiRedis className="text-[#E67E22]" /> },
   { name: "React", icon: <SiReact className="text-[#61DAFB]" /> },
+  { name: "AWS S3", icon: <DiAws className="text-[#61DAFB]" /> },
   { name: "Docker", icon: <SiDocker className="text-[#2496ED]" /> },
 ];
 
