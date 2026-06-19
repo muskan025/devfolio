@@ -29,7 +29,7 @@ const projectTracks = [
       "Built backend APIs for a platform connecting travelers with coworking and coliving spaces. Most of the work here was around data validation, structured schemas, and a signup flow that needed a non-technical team in the middle of it.",
     bullets: [
       "Built a two-phase host onboarding flow — form data goes to Google Sheets first for sales team review, then commits to MongoDB after approval. Yup validation at both stages.",
-"Developed profile, likes, and reviews APIs with structured MongoDB schemas, keeping response shapes stable for frontend integration."
+"Developed profile, likes, and reviews APIs with structured MongoDB schemas, keeping response shapes stable for integrations."
     ],
     tech: ["Node.js", "Express", "MongoDB", "Yup", "Google Sheets API"],
   },

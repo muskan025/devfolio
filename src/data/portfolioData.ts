@@ -68,7 +68,7 @@ export const projects: Project[] = [
   { title: "Nomad Admin & Host Portal", stack: ["TypeScript", "Amazon S3", "Node.js Streams" ] },
 ];
 
-export const learningItems = ["AI integration", "Docker"];
+export const learningItems = ["Spring Boot", "PostgreSQL"];
 
 export const socialLinks: SocialLink[] = [
   { name: "Email", href: "mailto:muskandodmani222@gmail.com" },
