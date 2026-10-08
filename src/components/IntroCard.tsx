@@ -59,7 +59,7 @@ const isYourDay = userHour >= 6 && userHour < 18;
         </span>
 
         <a
-  href="/resume.pdf"
+  href="/Muskan-Dodmani-Resume.pdf"
   download="Muskan-Dodmani-Resume.pdf"
   className="group inline-flex items-center gap-2 rounded-xl border border-[#91a579] bg-gradient-to-b from-[#f7f2e8] to-[#eee4d1] px-4 py-2 text-sm font-semibold text-[#253027] shadow-[inset_0_1px_0_rgba(255,255,255,0.72),0_8px_16px_rgba(28,38,30,0.08)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#708657] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_12px_20px_rgba(28,38,30,0.14)]"
 >
@@ -145,3 +145,4 @@ const isYourDay = userHour >= 6 && userHour < 18;
     </SectionCard>
   );
 }
+
