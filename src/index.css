@@ -29,6 +29,13 @@ body {
 
 html {
   height: 100%; /* Ensure the HTML root is full-height to allow scrolling */
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 .overlay {

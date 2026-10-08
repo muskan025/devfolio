@@ -9,17 +9,15 @@ const projectTracks = [
     project: "BIZ Nest Operations Suite",
     context: "Internal company management platform",
     description:
-      "Worked across the core SaaS platform while transitioning from intern to backend owner. Two systems I built here went beyond standard CRUD — they required thinking about async behavior, decoupling, and failure handling.",
+      "Build features across BIZ Nest's internal SaaS platform, connecting React interfaces and state management to Node.js APIs and MongoDB. Recent work includes payroll and payslips, alongside performance improvements and reliable background jobs.",
     bullets: [
-      // "Built modules for task management, ticket workflows, attendance tracking, meetings, leave management, and more.",
-      // "Built an async audit log system using Node.js EventEmitters to capture and persist user actions for audit traceability.",
-      // "Built a report generation module using Redis as a message broker and BullMQ for background job processing, enabling report generation, cancellation, retry handling, and more reliable async workflows."
-      "Moved report generation off the main thread into a BullMQ + Redis job queue — API responds instantly with a job ID, worker processes in background, client polls for status. Added cancellation and retry so failed or abandoned jobs don't silently disappear.",
+      "Built the HR payroll workflow end to end: HR configures compensation in a React interface, backend services calculate pay using deductions, leave, and attendance, and the system generates and emails payslips to employees—replacing spreadsheets.",
+      "Built the React payroll and reporting interfaces around clear feature state and API boundaries. Used TanStack Query to cache and refresh server data, Redux Toolkit for shared client state, and memoized derived table data to avoid unnecessary recalculation.",
+      "Moved report generation off the request path into a BullMQ + Redis job queue. The React client can poll job status; added cancellation and retry so long-running reports don't block the API.",
       "Decoupled audit logging from controllers using Node.js EventEmitters — core handlers emit events, listeners persist them separately. 500+ daily events logged with no added latency to requests.",
       "Reduced latency in a core internal module from 9–10 seconds to ~200 ms by rewriting queries as MongoDB aggregation pipelines and fetching only the required fields.",
-      
     ],
-    tech: ["Node.js", "Streams", "Express", "MongoDB", "EventEmitters", "Redis", "BullMQ"],
+    tech: ["React", "Redux Toolkit", "TanStack Query", "TypeScript", "Node.js", "Express", "MongoDB", "Redis", "BullMQ", "EventEmitters"],
   },
   {
     date: "2025",
@@ -27,12 +25,13 @@ const projectTracks = [
     project: "Nomad Spaces",
     context: "Traveler workspace and hospitality discovery platform",
     description:
-      "Built backend APIs for a platform connecting travelers with coworking and coliving spaces. Most of the work here was around data validation, structured schemas, and a signup flow that needed a non-technical team in the middle of it.",
+      "Built the React frontend and Node.js APIs for a platform connecting travelers with coworking and coliving spaces. Shipped host onboarding, profile, likes, and reviews experiences, with a two-phase onboarding flow reviewed by the sales team.",
     bullets: [
-      "Built a two-phase host onboarding flow — form data goes to Google Sheets first for sales team review, then commits to MongoDB after approval. Yup validation at both stages.",
-"Developed profile, likes, and reviews APIs with structured MongoDB schemas, keeping response shapes stable for integrations."
+      "Built React screens and reusable form patterns for host onboarding, profiles, likes, and reviews, then connected them to validated Express APIs and structured MongoDB schemas.",
+      "Implemented two-phase host onboarding: submit details to Google Sheets for sales review, then save approved hosts to MongoDB with Yup validation at both stages.",
+      "Used TanStack Query to cache API data and coordinate loading, refresh, and mutation states; kept shared client state focused with Redux Toolkit to reduce duplicate state and unnecessary UI updates.",
     ],
-    tech: ["Node.js", "Express", "MongoDB", "Yup", "Google Sheets API"],
+    tech: ["React", "Redux Toolkit", "TanStack Query", "TypeScript", "Node.js", "Express", "MongoDB", "Yup", "Google Sheets API"],
   },
   {
     date: "2025",
@@ -40,13 +39,14 @@ const projectTracks = [
     project: "Nomad Admin & Host Portal",
     context: "Admin and host-facing management system for the Nomad ecosystem",
     description:
-      "Backend tooling for admin operations and host management. The two problems worth noting here were about scale and developer experience — one around memory, one around making errors actually useful.",
+      "Built the React admin and host portal alongside its Node.js APIs, connecting management screens to CSV imports, record-level results, and AWS S3 image uploads.",
     bullets: [
-      "Replaced in-memory CSV loading with Node.js Streams — memory stays flat at any file size, and row-level isolation means one bad record doesn't kill the batch.",
-"Failed rows return with specific skip reasons, successful inserts with record-level confirmation. Debugging a malformed upload went from a back-and-forth conversation to a self-explanatory response.",
-"Built AWS S3 image upload with file type validation and structured key naming so files stay retrievable as the app scales across multiple upload sources."
+      "Built React screens for admin and host management, with CSV upload feedback that surfaces successful records and row-level skip reasons from the API.",
+      "Replaced in-memory CSV loading with Node.js Streams and row-level error isolation, so one malformed record doesn't fail the whole batch; returned actionable results for each row.",
+      "Improved portal performance by lazy loading admin views and using TanStack Query caching to avoid needless refetches and rerenders.",
+      "Built AWS S3 image upload with file type validation and structured key naming so files stay retrievable as the app scales across multiple upload sources.",
     ],
-    tech: ["Node.js", "MongoDB", "Streams", "AWS S3", "Error Handling"],
+    tech: ["React", "Redux Toolkit", "TanStack Query", "TypeScript", "Node.js", "Express", "MongoDB", "Streams", "AWS S3", "Error Handling"],
   },
 ];
 

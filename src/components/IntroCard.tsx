@@ -75,7 +75,7 @@ const isYourDay = userHour >= 6 && userHour < 18;
   I&apos;m a <span className="text-[#202922]">Software Engineer</span>
 </h2>
         <span className="block h-[2px] w-16 rounded-full bg-[#caa65d]/70"></span>
-        <p className="text-lg leading-8 text-[#3d4a3f]"> Backend-focused MERN Developer</p>
+        <p className="text-lg leading-8 text-[#3d4a3f]">Full Stack Developer | React, Node.js &amp; MongoDB</p>
       </div>
 
       <div className="mt-6 rounded-2xl border border-[#d5c8b2] bg-gradient-to-br from-[#f9f3e8] to-[#efe4d0] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.45),0_10px_24px_rgba(0,0,0,0.08)]">

@@ -118,7 +118,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           Journey through my career
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-7 text-[#4f5a4f] md:text-base">
-A project-based journey through the systems I worked on, often in parallel, while growing from internship responsibilities to backend ownership.        </p>
+          I build React interfaces, manage application state with Redux Toolkit and TanStack Query, and connect those experiences to Node.js APIs and MongoDB. Here are selected features I have shipped across the stack.
+        </p>
       </div>
 
       <div ref={ref} className="relative z-10 mx-auto max-w-5xl pb-6">

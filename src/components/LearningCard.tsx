@@ -70,8 +70,7 @@ export function LearningCard() {
         </div>
 
         <p className={`mt-4 max-w-[78%] text-base leading-7 ${MUTED_TEXT}`}>
-          Building deeper backend architecture skills and scalable systems with
-          curiosity, caffeine, and occasional existential debugging.
+          Growing across the stack, with a focus on polished React interfaces and reliable web applications.
         </p>
       </div>
     </SectionCard>

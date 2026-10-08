@@ -32,11 +32,11 @@ export function HeroCard() {
 </h1>
 
             <p className="mt-6 text-[1.25rem] font-semibold leading-tight tracking-[0.03em] text-[#f2d7a1] sm:text-[1.35rem]">
-              Explorer. Developer. Dreamer.
+              Full Stack Developer
             </p>
 
             <p className="mt-4 max-w-[440px] text-[0.98rem] leading-7 text-[#f9f2e5]/95 sm:text-base">
-              I build digital experiences that feel human, thoughtful, and beautifully crafted.
+              I build thoughtful web experiences with React on the frontend and Node.js APIs behind them.
             </p>
 
             <a

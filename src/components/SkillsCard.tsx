@@ -160,7 +160,7 @@ type Skill = {
   icon: JSX.Element;
 };
 
-type SkillCategoryKey = "backend" | "database" | "frontend" | "tools";
+type SkillCategoryKey = "frontend" | "backend" | "database" | "tools";
 
 type SkillCategory = {
   key: SkillCategoryKey;
@@ -178,6 +178,12 @@ type SkillsCardProps = {
 
 const skillCategories: SkillCategory[] = [
   {
+    key: "frontend",
+    label: "Frontend",
+    description: "Interfaces, state, and styling",
+    skills: ["React", "Redux", "Tailwind", "TypeScript"],
+  },
+  {
     key: "backend",
     label: "Backend",
     description: "APIs, auth, and server-side systems",
@@ -188,12 +194,6 @@ const skillCategories: SkillCategory[] = [
     label: "Database & Queues",
     description: "Data modeling, caching, and async jobs",
     skills: ["MongoDB", "Mongoose", "Redis", "BullMQ"],
-  },
-  {
-    key: "frontend",
-    label: "Frontend",
-    description: "Interfaces, state, and styling",
-    skills: ["React", "Redux", "Tailwind"],
   },
   {
     key: "tools",
@@ -207,7 +207,7 @@ export function SkillsCard({
   marqueeSkills = [],
   skillLogos = {},
 }: SkillsCardProps) {
-  const [activeCategory, setActiveCategory] = useState<SkillCategoryKey>("backend");
+  const [activeCategory, setActiveCategory] = useState<SkillCategoryKey>("frontend");
 
   const skillsByName = useMemo(
     () => new Map(marqueeSkills.map((skill) => [skill.name, skill])),
